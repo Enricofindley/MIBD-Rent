@@ -92,7 +92,6 @@ public class GUI extends javax.swing.JFrame {
         panelHome = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         homeLoginButton = new javax.swing.JButton();
-        buttonHomeSewa = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -384,13 +383,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        buttonHomeSewa.setText("Sewa");
-        buttonHomeSewa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHomeSewaActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Komentar");
 
@@ -427,12 +419,9 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(homeLoginButton)
                         .addGap(23, 23, 23))
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonHomeSewa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelHomeLayout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(53, 53, 53)
-                                .addComponent(jButton1)))
+                        .addComponent(jButton2)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addContainerGap())))
@@ -452,9 +441,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(homeLoginButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonHomeSewa)
-                .addGap(43, 43, 43)
+                .addGap(84, 84, 84)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3178,12 +3165,6 @@ public class GUI extends javax.swing.JFrame {
         panelHapusKomentar.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void buttonHomeSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeSewaActionPerformed
-        panelHome.setVisible(false);
-        panelPenyewaan.setVisible(true);
-        accessPrivilage=0;
-    }//GEN-LAST:event_buttonHomeSewaActionPerformed
-
     private void buttonPenyewaanTambahSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenyewaanTambahSewaActionPerformed
         panelPenyewaan.setVisible(false);
         panelTambahPeminjaman.setVisible(true);
@@ -3322,7 +3303,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonHapusPeminjamanCancel;
     private javax.swing.JButton buttonHapusPenyewaCancel;
     private javax.swing.JButton buttonHapusPenyewaHapus;
-    private javax.swing.JButton buttonHomeSewa;
     private javax.swing.JButton buttonJKendaraan;
     private javax.swing.JButton buttonJKendaraanAdd;
     private javax.swing.JButton buttonLaporanDataKendaraan;
