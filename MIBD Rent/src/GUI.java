@@ -3255,11 +3255,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTambahPeminjamanCancelActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        this.disableAllPanelVisibility();
-        if(accessPrivilage==1){
-            panelReceptionist.setVisible(true);
-        }
-        else{
+        if(receptionistRadioButtonGroup.isSelected(jRadioButton1.getModel())){
+            panelReceptionist.setVisible(false);
             panelPengembalian.setVisible(true);
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
