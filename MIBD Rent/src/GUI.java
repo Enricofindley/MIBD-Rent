@@ -141,6 +141,7 @@ public class GUI extends javax.swing.JFrame {
         buttonLaporanSewaKendaraan = new javax.swing.JButton();
         buttonLaporanKomentar = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         panelHapusJKendaraan = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -167,6 +168,8 @@ public class GUI extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         buttonTambahKendaraanCancel = new javax.swing.JButton();
         buttonTambahKendaraanAdd = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
         panelEditKendaraan = new javax.swing.JPanel();
         jComboBox6 = new javax.swing.JComboBox();
         jLabel25 = new javax.swing.JLabel();
@@ -898,6 +901,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setText("Keuangan");
+
         javax.swing.GroupLayout panelLaporanLayout = new javax.swing.GroupLayout(panelLaporan);
         panelLaporan.setLayout(panelLaporanLayout);
         panelLaporanLayout.setHorizontalGroup(
@@ -905,18 +910,19 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(panelLaporanLayout.createSequentialGroup()
                 .addGroup(panelLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLaporanLayout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel4))
+                    .addGroup(panelLaporanLayout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLaporanLayout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addGroup(panelLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buttonLaporanDataKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonLaporanDataPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonLaporanKomentar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonLaporanSewaKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                    .addGroup(panelLaporanLayout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(jLabel4))
-                    .addGroup(panelLaporanLayout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(buttonLaporanSewaKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(209, Short.MAX_VALUE))
         );
         panelLaporanLayout.setVerticalGroup(
@@ -926,11 +932,13 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonLaporanDataKendaraan)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLaporanDataPegawai)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLaporanSewaKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLaporanKomentar)
                 .addGap(28, 28, 28)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1078,6 +1086,8 @@ public class GUI extends javax.swing.JFrame {
 
         buttonTambahKendaraanAdd.setText("Add");
 
+        jLabel20.setText("jLabel20");
+
         javax.swing.GroupLayout panelTambahKendaraanLayout = new javax.swing.GroupLayout(panelTambahKendaraan);
         panelTambahKendaraan.setLayout(panelTambahKendaraanLayout);
         panelTambahKendaraanLayout.setHorizontalGroup(
@@ -1085,6 +1095,10 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
                         .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
@@ -1097,7 +1111,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
-                            .addComponent(jTextField4)))
+                            .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
                         .addComponent(buttonTambahKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -1113,23 +1127,27 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambahKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTambahKendaraanAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         panelEditKendaraan.setPreferredSize(new java.awt.Dimension(505, 323));
@@ -1565,7 +1583,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel54.setText("....");
 
-        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kasir", "Supir", "Cleaning Service" }));
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Receptionist" }));
 
         javax.swing.GroupLayout panelEditReceptionistLayout = new javax.swing.GroupLayout(panelEditReceptionist);
         panelEditReceptionist.setLayout(panelEditReceptionistLayout);
@@ -2220,13 +2238,13 @@ public class GUI extends javax.swing.JFrame {
 
         tabelLaporanPegawai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "Nama", "Pekerjaan", "Kontak"
+                "ID", "Nama", "Pekerjaan"
             }
         ));
         jScrollPane5.setViewportView(tabelLaporanPegawai);
@@ -2275,13 +2293,13 @@ public class GUI extends javax.swing.JFrame {
 
         tabelLaporanPegawai1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID Penyewa", "Nama Penyewa", "ID kendaraan", "Merek kendaraan", "Jenis Kendaraan", "Nomor Polisi", "Durasi sewa"
+                "ID Penyewa", "Nama Penyewa", "ID kendaraan", "Jenis Kendaraan", "Nomor Polisi", "Durasi sewa"
             }
         ));
         jScrollPane6.setViewportView(tabelLaporanPegawai1);
@@ -3352,6 +3370,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox10;
@@ -3399,6 +3418,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -3485,6 +3505,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
