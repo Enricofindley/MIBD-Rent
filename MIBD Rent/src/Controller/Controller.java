@@ -13,6 +13,7 @@ import Engine.Kendaraan;
 import Engine.Pegawai;
 import Engine.Penyewa;
 import Engine.Rental;
+import Engine.TabelKendaraan;
 import Engine.TabelKomentar;
 import Engine.TabelPegawai;
 import Engine.TabelRental;
@@ -56,6 +57,7 @@ public class Controller {
         this.updateRental();
         this.updatePenyewa();
         this.updatePegawai();
+        this.updateKendaraan();
         
     }
 
@@ -231,6 +233,13 @@ public class Controller {
     public TableModel tabelPegawai() {
         
         TabelPegawai table=new TabelPegawai(this.pegawe);
+        
+        return table;
+        
+    }
+    public TableModel tabelKendaraan() {
+        
+        TabelKendaraan table=new TabelKendaraan(this.kendaraan);
         
         return table;
         
