@@ -335,7 +335,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         panelLaporanSewa = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tabelLaporanPegawai1 = new javax.swing.JTable();
+        tabelSewa = new javax.swing.JTable();
         buttonBackLaporanSewa = new javax.swing.JButton();
         jLabel111 = new javax.swing.JLabel();
         panelPenyewaan = new javax.swing.JPanel();
@@ -361,6 +361,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel131 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         tabelKomentar = new javax.swing.JTable();
+        panelLaporanSewa1 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tabelSewa1 = new javax.swing.JTable();
+        buttonBackLaporanSewa1 = new javax.swing.JButton();
+        jLabel112 = new javax.swing.JLabel();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(505, 323));
 
@@ -915,6 +920,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton8.setText("Keuangan");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLaporanLayout = new javax.swing.GroupLayout(panelLaporan);
         panelLaporan.setLayout(panelLaporanLayout);
@@ -2237,7 +2247,7 @@ public class GUI extends javax.swing.JFrame {
         panelLaporanKendaraanLayout.setHorizontalGroup(
             panelLaporanKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLaporanKendaraanLayout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
             .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
@@ -2255,7 +2265,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel109)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(buttonBackLaporanKendaraan)
@@ -2325,18 +2335,25 @@ public class GUI extends javax.swing.JFrame {
         panelLaporanSewa.setFocusCycleRoot(true);
         panelLaporanSewa.setPreferredSize(new java.awt.Dimension(505, 323));
 
-        tabelLaporanPegawai1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelSewa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID Penyewa", "Nama Penyewa", "ID kendaraan", "Jenis Kendaraan", "Nomor Polisi", "Durasi sewa"
+                "ID Penyewa", "Nama Penyewa", "ID kendaraan", "Jenis Kendaraan", "Nomor Polisi"
             }
         ));
-        jScrollPane6.setViewportView(tabelLaporanPegawai1);
+        jScrollPane6.setViewportView(tabelSewa);
+        if (tabelSewa.getColumnModel().getColumnCount() > 0) {
+            tabelSewa.getColumnModel().getColumn(1).setHeaderValue("Nama Penyewa");
+            tabelSewa.getColumnModel().getColumn(2).setHeaderValue("ID kendaraan");
+            tabelSewa.getColumnModel().getColumn(3).setResizable(false);
+            tabelSewa.getColumnModel().getColumn(3).setHeaderValue("Jenis Kendaraan");
+            tabelSewa.getColumnModel().getColumn(4).setHeaderValue("Nomor Polisi");
+        }
 
         buttonBackLaporanSewa.setText("Back");
         buttonBackLaporanSewa.addActionListener(new java.awt.event.ActionListener() {
@@ -2590,6 +2607,61 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(58, 58, 58))
         );
 
+        panelLaporanSewa1.setFocusCycleRoot(true);
+        panelLaporanSewa1.setPreferredSize(new java.awt.Dimension(505, 323));
+
+        tabelSewa1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Penyewa", "Pemasukan", "Tanggal"
+            }
+        ));
+        jScrollPane7.setViewportView(tabelSewa1);
+
+        buttonBackLaporanSewa1.setText("Back");
+        buttonBackLaporanSewa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackLaporanSewa1ActionPerformed(evt);
+            }
+        });
+
+        jLabel112.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel112.setText("LAPORAN KEUANGAN");
+
+        javax.swing.GroupLayout panelLaporanSewa1Layout = new javax.swing.GroupLayout(panelLaporanSewa1);
+        panelLaporanSewa1.setLayout(panelLaporanSewa1Layout);
+        panelLaporanSewa1Layout.setHorizontalGroup(
+            panelLaporanSewa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLaporanSewa1Layout.createSequentialGroup()
+                .addGroup(panelLaporanSewa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLaporanSewa1Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel112))
+                    .addGroup(panelLaporanSewa1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLaporanSewa1Layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(buttonBackLaporanSewa1)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        panelLaporanSewa1Layout.setVerticalGroup(
+            panelLaporanSewa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLaporanSewa1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel112)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonBackLaporanSewa1)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2728,6 +2800,11 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(panelLaporanKomentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(395, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelLaporanSewa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(395, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2865,6 +2942,11 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(panelLaporanKomentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(544, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelLaporanSewa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(545, Short.MAX_VALUE)))
         );
 
         panelEditKendaraan.getAccessibleContext().setAccessibleDescription("");
@@ -3251,6 +3333,7 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanSewaKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanSewaKendaraanActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanSewa.setVisible(true);
+        tabelSewa.setModel(control.tabelsewa());
     }//GEN-LAST:event_buttonLaporanSewaKendaraanActionPerformed
 
     private void buttonLaporanDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanDataPegawaiActionPerformed
@@ -3315,6 +3398,17 @@ public class GUI extends javax.swing.JFrame {
         panelLaporan.setVisible(true);
     }//GEN-LAST:event_buttonBackLaporanKendaraanActionPerformed
 
+    private void buttonBackLaporanSewa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanSewa1ActionPerformed
+        panelLaporanSewa1.setVisible(false);
+        panelLaporan.setVisible(true);
+    }//GEN-LAST:event_buttonBackLaporanSewa1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        panelLaporanSewa1.setVisible(true);
+        panelLaporan.setVisible(false);
+        tabelSewa1.setModel(control.tabelKeuangan());
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3363,6 +3457,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonBackLaporanKendaraan3;
     private javax.swing.JButton buttonBackLaporanPegawai;
     private javax.swing.JButton buttonBackLaporanSewa;
+    private javax.swing.JButton buttonBackLaporanSewa1;
     private javax.swing.JButton buttonCancelPengembalian;
     private javax.swing.JButton buttonEditJAdd;
     private javax.swing.JButton buttonEditJCancel;
@@ -3459,6 +3554,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
@@ -3554,6 +3650,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
@@ -3594,6 +3691,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelLaporanKomentar;
     private javax.swing.JPanel panelLaporanPegawai;
     private javax.swing.JPanel panelLaporanSewa;
+    private javax.swing.JPanel panelLaporanSewa1;
     private javax.swing.JPanel panelManager;
     private javax.swing.JPanel panelPengembalian;
     private javax.swing.JPanel panelPenyewaan;
@@ -3611,8 +3709,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup receptionistRadioButtonGroup;
     private javax.swing.JTable tabelKomentar;
     private javax.swing.JTable tabelLaporanKendaraan;
-    private javax.swing.JTable tabelLaporanPegawai1;
     private javax.swing.JTable tabelPegawai;
+    private javax.swing.JTable tabelSewa;
+    private javax.swing.JTable tabelSewa1;
     private javax.swing.JTextField textAlamat;
     private javax.swing.JTextField textFieldIDPengembalian;
     private javax.swing.JTextField textFieldTglKembaliPengembalian;

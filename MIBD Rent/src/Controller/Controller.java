@@ -16,6 +16,7 @@ import Engine.Rental;
 import Engine.TabelKomentar;
 import Engine.TabelPegawai;
 import Engine.TabelRental;
+import Engine.TabelSewa;
 
 import java.io.FileNotFoundException;
 
@@ -39,7 +40,9 @@ public class Controller {
     ArrayList<Pegawai> pegawe;
     ArrayList<Kendaraan> kendaraan;
     ArrayList<Penyewa> pesewa;
-     ArrayList<Rental> rent;
+    ArrayList<Rental> rent;
+    ArrayList<Rental> rental;
+    
     
     String url;
 
@@ -49,6 +52,7 @@ public class Controller {
         kendaraan = new ArrayList<Kendaraan>();
         pesewa = new ArrayList<Penyewa>();
         rent=new ArrayList<Rental>();
+        rental=new ArrayList<Rental>();
         this.updateRental();
         this.updatePenyewa();
         this.updatePegawai();
@@ -109,7 +113,7 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select id_transaksi,biaya,tanggal from Penyewa";
+            String query = "select no_ktp,biaya,tanggal from Rental";
             ResultSet rs = sta.executeQuery(query);
             
             while (rs.next()) {
@@ -118,6 +122,33 @@ public class Controller {
                 String tanggal = rs.getString("tanggal");
                 Rental sewa=new Rental(id,biaya,tanggal);
                 rent.add(sewa);
+            }
+            rs.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+    }
+    
+    public void updateRentalSewa() {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String query = "select Penyewa.no_ktp,Penyewa.nama,Kendaraan.ID_kendaraan,Kendaraan.jenis_kendaraan,Kendaraan.noPol from rental left join Penyewa on rental.no_ktp=penyewa.no_ktp join Kendaraan on rental.id_kendaaraan=kendaraan.id_kendaraan";
+            ResultSet rs = sta.executeQuery(query);
+            
+            while (rs.next()) {
+                String id = rs.getString("Penyewa.no_KTP");
+                String  nama = rs.getString("Penyewa.nama");
+                String idK = rs.getString("Kendaraan.ID_kendaraan");
+                String jenis = rs.getString("Kendaraan.id_jenis");
+                String nopol = rs.getString("Kendaraan.nopol");
+                Penyewa pesewa=new Penyewa(id,nama,"","");
+                Kendaraan car=new Kendaraan(idK,jenis,0,0,nopol);
+                Rental sewa=new Rental(pesewa,car);
+                rental.add(sewa);
             }
             rs.close();
             conn.close();
@@ -211,9 +242,15 @@ public class Controller {
         return table;
     }
     
-    public TableModel tabelKeungan() {
+    public TableModel tabelKeuangan() {
         
         TabelRental table=new TabelRental(this.rent);
+        return table;
+    }
+    
+    public TableModel tabelsewa() {
+        
+        TabelSewa table=new TabelSewa(this.rental);
         return table;
     }
 
