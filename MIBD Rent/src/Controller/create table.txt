@@ -1,0 +1,78 @@
+
+create table pegawai(
+	EmployeeId char (8) not null,
+	nama varchar(100),
+	primary key (Employeeid),
+	Status_Jabatan varchar(12)
+)
+
+create table Jenis_Kendaraan (
+	ID_Jenis char(2) not null,
+	Nama_Jenis varchar(50),
+	primary key (ID_Jenis)
+)
+
+create table Kendaraan (
+	ID_Kendaraan char(5) not null,
+	Nopol varchar (8) unique not null,
+	id_jenis char(2) not null,
+	primary key (ID_Kendaraan),
+	foreign key (id_jenis) references jenis_kendaraan (id_jenis)
+)
+
+
+
+
+
+create table penyewa(
+	komentar varchar(1000),
+	alamat varchar (200),
+	nama varchar (100),
+	no_ktp int not null
+	primary key (no_ktp)
+)
+
+create table pengembalian(
+	id_pengembalian char(10) not null,
+	tanggal_kembali varchar(8),
+	no_ktp int,
+	ID_Kendaraan char(5) not null,
+	EmployeeId char (8) not null,
+	primary key (id_pengembalian),
+	foreign key (EmployeeId) references pekerja(EmployeeId),
+	foreign key (no_ktp) references pelanggan(no_ktp),
+	foreign key (ID_Kendaraan) references kendaraan(ID_Kendaraan)
+)
+
+create table Rental(
+	id_transaksi char (8) not null,
+	Biaya_Sewa int,
+	tanggal_sewa varchar(8),
+	ID_Kendaraan char(5) not null,
+	no_ktp int not null,
+	DayaTampung int,
+	EmployeeId char (8) not null,
+	primary key (id_transaksi),
+	foreign key (EmployeeId) references pekerja(EmployeeId),
+	foreign key(no_ktp) references pelanggan(no_ktp),
+	foreign key (ID_Kendaraan) references kendaraan(ID_Kendaraan)
+)
+
+INSERT INTO pegawai values('sdvsbegf','Tony Stark','true');
+INSERT INTO pegawai values('ojpjknhh','Elsa','false');
+INSERT INTO pegawai values('xxvwvsdc','Gerald','false');
+INSERT INTO pegawai values('tnqtbfvd','Gary','true');
+INSERT INTO pegawai values('grwhefne','Philip','true');
+
+INSERT INTO Jenis_Kendaraan values('sd','sedan');
+INSERT INTO Jenis_Kendaraan values('pu','pick up');
+INSERT INTO Jenis_Kendaraan values('tk','truk');
+INSERT INTO Jenis_Kendaraan values('lm','limosin');
+INSERT INTO Jenis_Kendaraan values('mv','mini van');
+
+INSERT INTO Kendaraan values('mv','mini van');
+INSERT INTO Kendaraan values('mv','mini van');
+INSERT INTO Kendaraan values('mv','mini van');
+INSERT INTO Kendaraan values('mv','mini van');
+INSERT INTO Kendaraan values('mv','mini van');
+

@@ -6,6 +6,10 @@ import Engine.Kendaraan;
 import Engine.Pegawai;
 import Engine.Penyewa;
 import Controller.Controller;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
 
 
 /*
@@ -27,7 +31,7 @@ public class GUI extends javax.swing.JFrame {
     /**
      * Creates new form GUI
      */
-    public GUI() {
+    public GUI() throws IOException, ClassNotFoundException {
         initComponents();
         accessPrivilage=0;
         managerchar[0]='m';
@@ -326,7 +330,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel109 = new javax.swing.JLabel();
         panelLaporanPegawai = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tabelLaporanPegawai = new javax.swing.JTable();
+        tabelPegawai = new javax.swing.JTable();
         buttonBackLaporanPegawai = new javax.swing.JButton();
         jLabel110 = new javax.swing.JLabel();
         panelLaporanSewa = new javax.swing.JPanel();
@@ -356,7 +360,7 @@ public class GUI extends javax.swing.JFrame {
         buttonBackLaporanKendaraan3 = new javax.swing.JButton();
         jLabel131 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelKomentar = new javax.swing.JTable();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(505, 323));
 
@@ -1522,6 +1526,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonTambahKomentarAdd.setText("Add");
+        buttonTambahKomentarAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTambahKomentarAddActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -2255,7 +2264,7 @@ public class GUI extends javax.swing.JFrame {
         panelLaporanPegawai.setFocusCycleRoot(true);
         panelLaporanPegawai.setPreferredSize(new java.awt.Dimension(505, 323));
 
-        tabelLaporanPegawai.setModel(new javax.swing.table.DefaultTableModel(
+        tabelPegawai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -2266,11 +2275,11 @@ public class GUI extends javax.swing.JFrame {
                 "ID", "Nama", "Pekerjaan"
             }
         ));
-        jScrollPane5.setViewportView(tabelLaporanPegawai);
-        if (tabelLaporanPegawai.getColumnModel().getColumnCount() > 0) {
-            tabelLaporanPegawai.getColumnModel().getColumn(0).setHeaderValue("ID");
-            tabelLaporanPegawai.getColumnModel().getColumn(1).setHeaderValue("Nama");
-            tabelLaporanPegawai.getColumnModel().getColumn(2).setHeaderValue("Pekerjaan");
+        jScrollPane5.setViewportView(tabelPegawai);
+        if (tabelPegawai.getColumnModel().getColumnCount() > 0) {
+            tabelPegawai.getColumnModel().getColumn(0).setHeaderValue("ID");
+            tabelPegawai.getColumnModel().getColumn(1).setHeaderValue("Nama");
+            tabelPegawai.getColumnModel().getColumn(2).setHeaderValue("Pekerjaan");
         }
 
         buttonBackLaporanPegawai.setText("Back");
@@ -2538,7 +2547,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel131.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel131.setText("Komentar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKomentar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -2549,7 +2558,7 @@ public class GUI extends javax.swing.JFrame {
                 "No.KTP", "Komentar"
             }
         ));
-        jScrollPane10.setViewportView(jTable1);
+        jScrollPane10.setViewportView(tabelKomentar);
 
         javax.swing.GroupLayout panelLaporanKomentarLayout = new javax.swing.GroupLayout(panelLaporanKomentar);
         panelLaporanKomentar.setLayout(panelLaporanKomentarLayout);
@@ -3251,12 +3260,13 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanDataPegawaiActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanPegawai.setVisible(true);
-        
+        tabelPegawai=control.tabelPegawai();
     }//GEN-LAST:event_buttonLaporanDataPegawaiActionPerformed
 
     private void buttonLaporanKomentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanKomentarActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanKomentar.setVisible(true);
+        tabelKomentar= (JTable) control.tabelKomentar();
     }//GEN-LAST:event_buttonLaporanKomentarActionPerformed
 
     private void buttonBackLaporanKendaraan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraan3ActionPerformed
@@ -3297,8 +3307,12 @@ public class GUI extends javax.swing.JFrame {
     private void buttonTambahKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanAddActionPerformed
         // TODO add your handling code here:
         int kapas=Integer.getInteger(textKapasitas.getText());
-        this.control.insetKendaraan(textID.getText(),textNoPol.getText(),kapas);
+        this.control.insertKendaraan(textID.getText(),textNoPol.getText(),kapas);
     }//GEN-LAST:event_buttonTambahKendaraanAddActionPerformed
+
+    private void buttonTambahKomentarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTambahKomentarAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3330,7 +3344,13 @@ public class GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                try {
+                    new GUI().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -3533,7 +3553,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
@@ -3589,9 +3608,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioReceptionistPeminjamanKendaraan;
     private javax.swing.JRadioButton radioReceptionistPenyewaan;
     private javax.swing.ButtonGroup receptionistRadioButtonGroup;
+    private javax.swing.JTable tabelKomentar;
     private javax.swing.JTable tabelLaporanKendaraan;
-    private javax.swing.JTable tabelLaporanPegawai;
     private javax.swing.JTable tabelLaporanPegawai1;
+    private javax.swing.JTable tabelPegawai;
     private javax.swing.JTextField textAlamat;
     private javax.swing.JTextField textFieldIDPengembalian;
     private javax.swing.JTextField textFieldTglKembaliPengembalian;
