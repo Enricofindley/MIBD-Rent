@@ -12,21 +12,20 @@ package Controller;
 import Engine.Kendaraan;
 import Engine.Pegawai;
 import Engine.Penyewa;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
+import Engine.TabelPegawai;
+
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
+
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -37,46 +36,19 @@ public class Controller {
     ArrayList<Pegawai> pegawe;
     ArrayList<Kendaraan> kendaraan;
     ArrayList<Penyewa> pesewa;
-    String connectionString;
-    Connection conn;
+    String url;
 
-    public Controller() throws IOException, ClassNotFoundException {
-        try {
-            String url = "jdbc:sqlserver://10.100.70.70;user=i13069;password=ryukishin;database=i13069";
-            conn = DriverManager.getConnection(url);
-
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
+    public Controller() {
+        url = "jdbc:sqlserver://10.100.70.70;user=i13069;password=ryukishin;database=i13069";
+        pegawe=new ArrayList<Pegawai>();
     }
 
-    public void updatePegawai() {
-        try {
-            ArrayList<Pegawai> result = null;
-            Statement sta = conn.createStatement();
-            String query = "select IdPegawai,Nama,IsManager from Pegawai";
-            ResultSet rs = sta.executeQuery(query);
-            result = new ArrayList<Pegawai>();
-            while (rs.next()) {
-                String id = rs.getString("IdPegawai");
-                String nama = rs.getString("Nama");
-                boolean manager = rs.getBoolean("IsManager");
-                result.add(new Pegawai(id, nama, manager));
-            }
-            rs.close();
-            conn.close();
-            this.pegawe=result;
-
-        } catch (SQLException e) {
-            System.out.println(e.toString());
-        }
-
-    }
+    
 
     public void updateKendaraan() {
         ArrayList<Kendaraan> result = null;
         try {
-
+            Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "select IdKendaraan,noPolisi,kapasitas from Penyewa";
             ResultSet rs = sta.executeQuery(query);
@@ -98,7 +70,7 @@ public class Controller {
 
     public void updatePenyewa() {
         try {
-
+            Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "select noKTP,nama,kommentar,alamat from Penyewa";
             ResultSet rs = sta.executeQuery(query);
@@ -122,7 +94,7 @@ public class Controller {
 
     public void insertPegawai(String IdPegawai, String nama) {
         try {
-            Connection conn = DriverManager.getConnection(this.connectionString);
+            Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Pegawai] ([IdPegawai], [nama], [isManager]) VALUES (" + IdPegawai + "," + nama + ",false)";
             ResultSet rs = sta.executeQuery(query);
@@ -137,7 +109,7 @@ public class Controller {
 
     public void insertKendaraan(String idKendaraan, String noPol, int kapas) {
         try {
-            Connection conn = DriverManager.getConnection(this.connectionString);
+            Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Kendaraan] ([idKendaraan], [noPol]) VALUES (" + idKendaraan + "," + noPol + "," + kapas + ")";
             ResultSet rs = sta.executeQuery(query);
@@ -152,7 +124,7 @@ public class Controller {
 
     public void insertPenyewa(String noKTP, String nama, String alamat, String komentar) {
         try {
-            Connection conn = DriverManager.getConnection(this.connectionString);
+            Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
             ResultSet rs = sta.executeQuery(query);
@@ -178,23 +150,35 @@ public class Controller {
         }
         return model;
     }
+    public void updatePegawai() {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String query = "select EmployeeId,nama,Status_Jabatan from Pegawai";
+            ResultSet rs = sta.executeQuery(query);
+            while (rs.next()) {
+                String id = rs.getString("EmployeeId");
+                String nama = rs.getString("nama");
+                String manager = rs.getString("Status_Jabatan");
+                Pegawai p=new Pegawai(id,nama,manager);
+                pegawe.add(p);
+               
+            }
+            rs.close();
+            conn.close();
 
-    public JTable tabelPegawai() {
-        this.updatePegawai();
-        JTable table = new JTable();
-        DefaultTableModel model = new DefaultTableModel();
-        String[] header = new String[3];
-        header[0] = "ID";
-        header[1] = "Nama";
-        header[2] = "IsManager";
-        model.addRow(new Object[]{header[0], header[1],header[2]});
-        int i = 0;
-        while (i < this.pegawe.size()) {
-            Object[] orang = (new Object[]{this.pegawe.get(i).getID(), this.pegawe.get(i).getNama(),this.pegawe.get(i).isManager()});
-            model.addRow(orang);
+        } catch (SQLException e) {
+            System.out.println(e.toString());
         }
-        table.setModel(model);
+
+    }
+
+    public TableModel tabelPegawai() {
+        this.updatePegawai();
+        TabelPegawai table=new TabelPegawai(this.pegawe);
+        
         return table;
+        
     }
 
 }

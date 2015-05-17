@@ -10,13 +10,25 @@ package Engine;
  * @author RickyWahyudi
  */
 public class Pegawai {
+
     private String IdPegawai;
     private String nama;
-    private boolean isManager;
-    
-    public Pegawai(String id,String name,boolean manager){
-        this.IdPegawai=id;
-        this.nama=name;
-        this.isManager=manager;
+    private String isManager;
+
+    public Pegawai(String id, String name, String manager) {
+        this.IdPegawai = id;
+        this.nama = name;
+        this.isManager = manager;
+    }
+
+    public String getID() {
+        return IdPegawai;
+    }
+    public String getNama() {
+        return nama;
+    }
+    public String isManager() {
+        String result=String.valueOf(isManager);
+        return result;
     }
 }

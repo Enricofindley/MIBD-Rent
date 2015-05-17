@@ -3260,7 +3260,7 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanDataPegawaiActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanPegawai.setVisible(true);
-        tabelPegawai=control.tabelPegawai();
+        tabelPegawai.setModel(control.tabelPegawai());
     }//GEN-LAST:event_buttonLaporanDataPegawaiActionPerformed
 
     private void buttonLaporanKomentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanKomentarActionPerformed
