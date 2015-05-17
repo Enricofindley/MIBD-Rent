@@ -2211,13 +2211,13 @@ public class GUI extends javax.swing.JFrame {
 
         tabelLaporanKendaraan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Jenis", "Merek", "Nomor Polisi", "Kapasitas", "Harga sewa"
+                "ID", "Jenis", "Nomor Polisi", "Kapasitas", "Harga sewa"
             }
         ));
         jScrollPane4.setViewportView(tabelLaporanKendaraan);
@@ -2236,29 +2236,30 @@ public class GUI extends javax.swing.JFrame {
         panelLaporanKendaraan.setLayout(panelLaporanKendaraanLayout);
         panelLaporanKendaraanLayout.setHorizontalGroup(
             panelLaporanKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLaporanKendaraanLayout.createSequentialGroup()
+                .addGap(0, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
             .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
                 .addGroup(panelLaporanKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(jLabel109))
                     .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(buttonBackLaporanKendaraan))
-                    .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addGap(220, 220, 220)
+                        .addComponent(buttonBackLaporanKendaraan)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLaporanKendaraanLayout.setVerticalGroup(
             panelLaporanKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLaporanKendaraanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel109)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(buttonBackLaporanKendaraan)
-                .addContainerGap())
+                .addGap(129, 129, 129))
         );
 
         panelLaporanPegawai.setFocusCycleRoot(true);
@@ -3169,11 +3170,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonReceptionistDeleteActionPerformed
 
-    private void buttonBackLaporanKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraanActionPerformed
-        panelLaporanKendaraan.setVisible(false);
-        panelLaporan.setVisible(true);
-    }//GEN-LAST:event_buttonBackLaporanKendaraanActionPerformed
-
     private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldPasswordActionPerformed
@@ -3266,7 +3262,7 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanKomentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanKomentarActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanKomentar.setVisible(true);
-        tabelKomentar= (JTable) control.tabelKomentar();
+        tabelKomentar.setModel( control.tabelKomentar());
     }//GEN-LAST:event_buttonLaporanKomentarActionPerformed
 
     private void buttonBackLaporanKendaraan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraan3ActionPerformed
@@ -3313,6 +3309,11 @@ public class GUI extends javax.swing.JFrame {
     private void buttonTambahKomentarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonTambahKomentarAddActionPerformed
+
+    private void buttonBackLaporanKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraanActionPerformed
+        panelLaporanKendaraan.setVisible(false);
+        panelLaporan.setVisible(true);
+    }//GEN-LAST:event_buttonBackLaporanKendaraanActionPerformed
 
     /**
      * @param args the command line arguments

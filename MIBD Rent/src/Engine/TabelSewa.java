@@ -12,17 +12,16 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author RickyWahyudi
  */
-public class TabelKendaraan extends AbstractTableModel {
+public class TabelSewa extends AbstractTableModel {
+    ArrayList<Rental> rent;
 
-    ArrayList<Kendaraan> mobil;
-
-    public TabelKendaraan(ArrayList<Kendaraan> kendaraan) {
-        this.mobil = kendaraan;
+    public TabelSewa(ArrayList<Rental> rental) {
+        this.rent = rental;
     }
 
     @Override
     public int getRowCount() {
-        return this.mobil.size();
+        return this.rent.size();
     }
 
     @Override
@@ -34,17 +33,12 @@ public class TabelKendaraan extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return mobil.get(rowIndex).getId();
+                return rent.get(rowIndex).getId();
             case 1:
-                return mobil.get(rowIndex).getNoPol();
+                return rent.get(rowIndex).getBiaya();
             case 2:
-                return mobil.get(rowIndex).getNoPol();
-            case 3:
-                return mobil.get(rowIndex).getNoPol();
-            case 4:
-                return mobil.get(rowIndex).getKap();
-            case 5:
-                return mobil.get(rowIndex).getHarga();
+                return rent.get(rowIndex).getTanggal();
+
             default:
                 return null;
         }
@@ -53,21 +47,14 @@ public class TabelKendaraan extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "ID";
+                return "id transaksi";
             case 1:
-                return "Jenis";
+                return "Pemasukan";
             case 2:
-                return "Merek";
+                return "tanggal";
 
-            case 3:
-                return "NoPol";
-            case 4:
-                return "Kapasitas";
-            case 5:
-                return "HargaSewa";
             default:
                 return null;
         }
     }
-
 }

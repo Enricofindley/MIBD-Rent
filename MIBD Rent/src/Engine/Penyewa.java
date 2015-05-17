@@ -16,7 +16,7 @@ public class Penyewa {
     private String nama;
     private String alamat;
     private String noKTP;
-    public Penyewa(String comment, String nama, String alamat, String noKTP) {
+    public Penyewa(String noKTP, String nama, String alamat, String comment) {
         this.comment = comment;
         this.nama = nama;
         this.alamat = alamat;

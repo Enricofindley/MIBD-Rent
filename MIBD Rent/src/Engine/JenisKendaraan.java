@@ -10,5 +10,17 @@ package Engine;
  * @author RickyWahyudi
  */
 public class JenisKendaraan {
+    private int id;
+    private String nama;
+    public JenisKendaraan(int idJ,String namaJ){
+        this.id=idJ;
+        this.nama=namaJ;
+    }
     
+    public int getId(){
+        return this.id;
+    }
+    public String getNama(){
+        return this.nama;
+    }
 }
