@@ -325,7 +325,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel108 = new javax.swing.JLabel();
         panelLaporanKendaraan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tabelLaporanKendaraan = new javax.swing.JTable();
+        tabelKendaraan = new javax.swing.JTable();
         buttonBackLaporanKendaraan = new javax.swing.JButton();
         jLabel109 = new javax.swing.JLabel();
         panelLaporanPegawai = new javax.swing.JPanel();
@@ -2219,7 +2219,7 @@ public class GUI extends javax.swing.JFrame {
         panelLaporanKendaraan.setFocusCycleRoot(true);
         panelLaporanKendaraan.setPreferredSize(new java.awt.Dimension(505, 323));
 
-        tabelLaporanKendaraan.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKendaraan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -2230,7 +2230,7 @@ public class GUI extends javax.swing.JFrame {
                 "ID", "Jenis", "Nomor Polisi", "Kapasitas", "Harga sewa"
             }
         ));
-        jScrollPane4.setViewportView(tabelLaporanKendaraan);
+        jScrollPane4.setViewportView(tabelKendaraan);
 
         buttonBackLaporanKendaraan.setText("Back");
         buttonBackLaporanKendaraan.addActionListener(new java.awt.event.ActionListener() {
@@ -2998,6 +2998,8 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanDataKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanDataKendaraanActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanKendaraan.setVisible(true);
+        tabelKendaraan.setModel(control.tabelKendaraan());
+        
     }//GEN-LAST:event_buttonLaporanDataKendaraanActionPerformed
 
     private void homeLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeLoginButtonActionPerformed
@@ -3707,8 +3709,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioReceptionistPeminjamanKendaraan;
     private javax.swing.JRadioButton radioReceptionistPenyewaan;
     private javax.swing.ButtonGroup receptionistRadioButtonGroup;
+    private javax.swing.JTable tabelKendaraan;
     private javax.swing.JTable tabelKomentar;
-    private javax.swing.JTable tabelLaporanKendaraan;
     private javax.swing.JTable tabelPegawai;
     private javax.swing.JTable tabelSewa;
     private javax.swing.JTable tabelSewa1;
