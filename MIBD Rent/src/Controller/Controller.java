@@ -176,11 +176,11 @@ public class Controller {
         }
     }
 
-    public void insertKendaraan(String idKendaraan, String noPol, int kapas) {
+    public void insertKendaraan(String idKendaraan, String noPol ,int sewa,int kapas,String idJenis) {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "INSERTINTO [Kendaraan] ([idKendaraan], [noPol]) VALUES (" + idKendaraan + "," + noPol + "," + kapas + ")";
+            String query = "INSERTINTO [Kendaraan]  VALUES (" + idKendaraan + "," + noPol + "," + kapas +"," + sewa +"," + idJenis + ")";
             ResultSet rs = sta.executeQuery(query);
 
             rs.close();
