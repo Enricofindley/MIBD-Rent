@@ -182,7 +182,28 @@ public class Controller {
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Kendaraan]  VALUES (" + idKendaraan + "," + noPol + "," + kapas +"," + sewa +"," + idJenis + ")";
             ResultSet rs = sta.executeQuery(query);
+            Kendaraan mobil=new Kendaraan(idKendaraan,noPol,sewa,kapas,idJenis);
+            this.kendaraan.add(mobil);
+            rs.close();
+            conn.close();
 
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    public void insertKomentar(String noKTP, String komentar){
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String query = "select no_KTP,nama,alamat,komentar from penyewa while no_ktp="+noKTP+";";
+            ResultSet rs = sta.executeQuery(query);
+            String nama=rs.getString("nama");
+            String alamat=rs.getString("alamat");
+            query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
+            rs = sta.executeQuery(query);
+            Penyewa sewa=new Penyewa(noKTP,nama,alamat,komentar);
+            this.pesewa.add(sewa);
             rs.close();
             conn.close();
 
@@ -197,10 +218,11 @@ public class Controller {
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
             ResultSet rs = sta.executeQuery(query);
-
+            Penyewa sewa=new Penyewa(noKTP,nama,alamat,komentar);
+            this.pesewa.add(sewa);
             rs.close();
             conn.close();
-
+            
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
@@ -260,6 +282,7 @@ public class Controller {
     public TableModel tabelsewa() {
         
         TabelSewa table=new TabelSewa(this.rental);
+        
         return table;
     }
 
