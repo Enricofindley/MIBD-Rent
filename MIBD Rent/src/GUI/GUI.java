@@ -172,7 +172,7 @@ public class GUI extends javax.swing.JFrame {
         panelTambahKendaraan = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        comboJ = new javax.swing.JComboBox();
         jLabel22 = new javax.swing.JLabel();
         textID = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -1094,6 +1094,12 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel19.setText("Jenis Kendaraan");
 
+        comboJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboJActionPerformed(evt);
+            }
+        });
+
         jLabel22.setText("ID ");
 
         jLabel23.setText("Nomor Polisi");
@@ -1136,7 +1142,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboJ, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textID)
                             .addComponent(textNoPol)
                             .addComponent(TextHarga, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -1154,7 +1160,7 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
@@ -2820,7 +2826,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelManager, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                    .addComponent(panelManager, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -3387,8 +3393,24 @@ public class GUI extends javax.swing.JFrame {
 
     private void buttonTambahKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanAddActionPerformed
         // TODO add your handling code here:
+        String jenis="";
+        if(comboJ.getSelectedItem().equals("sedan")){
+            jenis="00";
+        }else if(comboJ.getSelectedItem().equals("pickup")){
+            jenis="01";
+        }
+        else if(comboJ.getSelectedItem().equals("limosin")){
+            jenis="03";
+        }
+        else if(comboJ.getSelectedItem().equals("truck")){
+            jenis="02";
+        }
+        else if(comboJ.getSelectedItem().equals("minivan")){
+            jenis="04";
+        }
+        
         int kapas=Integer.getInteger(textKapasitas.getText());
-        this.control.insertKendaraan(textID.getText(),textNoPol.getText(),kapas);
+        this.control.insertKendaraan(textID.getText(),textNoPol.getText(),kapas,Integer.getInteger(TextHarga.getText()),jenis);
     }//GEN-LAST:event_buttonTambahKendaraanAddActionPerformed
 
     private void buttonTambahKomentarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAddActionPerformed
@@ -3410,6 +3432,14 @@ public class GUI extends javax.swing.JFrame {
         panelLaporan.setVisible(false);
         tabelSewa1.setModel(control.tabelKeuangan());
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void comboJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJActionPerformed
+               comboJ.addItem("sedan");
+               comboJ.addItem("pickup");
+               comboJ.addItem("limosin");
+               comboJ.addItem("truck");
+               comboJ.addItem("minivan");
+    }//GEN-LAST:event_comboJActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3510,6 +3540,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonTambahPenyewaCancel;
     private javax.swing.JComboBox comboBoxIDKendaraanPengembalian;
     private javax.swing.JComboBox comboBoxNOKTPPengembalian;
+    private javax.swing.JComboBox comboJ;
     private javax.swing.JButton employeeCancelButton;
     private javax.swing.JButton employeeLoginButton;
     private javax.swing.JTextField fieldID;
@@ -3538,7 +3569,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox17;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox21;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
