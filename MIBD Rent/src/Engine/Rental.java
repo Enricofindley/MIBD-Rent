@@ -13,27 +13,18 @@ public class Rental {
     private String idtrans;
     private int biaya;
     private String tanggal;
-    private String idKenradaraan;
-    private String idpegawai;
     private Kendaraan car;
-    private String noKTP;
     private Penyewa pesewa;
     private String namaPenyewa;
-    private String jenisK;
     public Rental(String id,int biaya,String tanggal){
         this.idtrans=id;
         this.biaya=biaya;
         this.tanggal=tanggal;
     }
-    public Rental(Penyewa sewa,Kendaraan mobil ){
+    public Rental(String id,Penyewa sewa,Kendaraan mobil ){
+        this.idtrans=id;
         this.pesewa=sewa;
-        this.noKTP=sewa.getNoKTP();
-        this.idKenradaraan=car.getId();
         this.car=mobil;
-        this.idKenradaraan=mobil.getId();
-        this.namaPenyewa=sewa.getNama();
-        this.jenisK=car.getjenisMerek();
-        
     }
     public String getId(){
         return this.idtrans;
@@ -45,19 +36,20 @@ public class Rental {
         return this.tanggal;
     }
     public String getKTP(){
-        return this.noKTP;
+        return this.pesewa.getNoKTP();
     }
-    public int getidKendaraan(){
-        return this.biaya;
+    public String getidKendaraan(){
+        return this.car.getId();
+    }
+    public String getJenisKendaraan(){
+        return this.car.getjenisMerek();
     }
     public String getnoPol(){
-        return this.idpegawai;
+        return this.car.getNoPol();
     }
     public String getNamaPenyewa(){
         
         return this.namaPenyewa;
     }
-    public String getMrek(){
-     return this.jenisK;   
-    }
+    
 }

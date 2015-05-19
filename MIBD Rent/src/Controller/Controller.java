@@ -58,6 +58,7 @@ public class Controller {
         this.updatePenyewa();
         this.updatePegawai();
         this.updateKendaraan();
+        this.updateRentalSewa();
         
     }
 
@@ -72,10 +73,11 @@ public class Controller {
             while (rs.next()) {
                 String id = rs.getString("ID_Kendaraan");
                 String nopol = rs.getString("noPol");
-                int kapas = Integer.getInteger(rs.getString("Kapasitas"));
-                int harga=Integer.getInteger(rs.getString("Harga"));
+                int kapas=rs.getInt("Kapasitas");
+                int harga=rs.getInt("Harga");
                 String jenis= rs.getString("Nama_Jenis");
                 Kendaraan k=new Kendaraan(id,nopol,kapas,harga,jenis);
+                this.kendaraan.add(k);
             }
             rs.close();
             conn.close();
@@ -115,13 +117,13 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select no_ktp,biaya,tanggal from Rental";
+            String query = "select no_ktp,biaya_sewa,tanggal_sewa from Rental ";
             ResultSet rs = sta.executeQuery(query);
             
             while (rs.next()) {
                 String id = rs.getString("no_KTP");
-                int biaya = rs.getInt("biaya");
-                String tanggal = rs.getString("tanggal");
+                int biaya = rs.getInt("biaya_sewa");
+                String tanggal = rs.getString("tanggal_sewa");
                 Rental sewa=new Rental(id,biaya,tanggal);
                 rent.add(sewa);
             }
@@ -138,18 +140,20 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select Penyewa.no_ktp,Penyewa.nama,Kendaraan.ID_kendaraan,Kendaraan.jenis_kendaraan,Kendaraan.noPol from rental left join Penyewa on rental.no_ktp=penyewa.no_ktp join Kendaraan on rental.id_kendaaraan=kendaraan.id_kendaraan";
+            String query = "select Rental.id_transaksi,Penyewa.no_ktp,Penyewa.nama,Kendaraan.ID_Kendaraan,jenis_kendaraan.id_jenis,Jenis_Kendaraan.Nama_Jenis,Kendaraan.nopol from rental left join Penyewa on rental.no_ktp=penyewa.no_ktp left join Kendaraan on rental.ID_Kendaraan=Kendaraan.ID_Kendaraan left join Jenis_kendaraan on Kendaraan.id_jenis=Jenis_kendaraan.id_jenis";
             ResultSet rs = sta.executeQuery(query);
             
             while (rs.next()) {
-                String id = rs.getString("Penyewa.no_KTP");
-                String  nama = rs.getString("Penyewa.nama");
-                String idK = rs.getString("Kendaraan.ID_kendaraan");
-                String jenis = rs.getString("Kendaraan.id_jenis");
-                String nopol = rs.getString("Kendaraan.nopol");
+                String idtrans=rs.getString("id_transaksi");
+                String id = rs.getString("no_ktp");
+                String  nama = rs.getString("nama");
+                String idK = rs.getString("ID_kendaraan");
+                String jenis = rs.getString("nama_jenis");
+                String nopol = rs.getString("noPol");
+                String namajenis = rs.getString("Nama_Jenis");
                 Penyewa pesewa=new Penyewa(id,nama,"","");
-                Kendaraan car=new Kendaraan(idK,jenis,0,0,nopol);
-                Rental sewa=new Rental(pesewa,car);
+                Kendaraan car=new Kendaraan(idK,nopol,0,0,jenis);
+                Rental sewa=new Rental(idtrans,pesewa,car);
                 rental.add(sewa);
             }
             rs.close();

@@ -86,6 +86,7 @@ public class GUI extends javax.swing.JFrame {
         panelPenyewaan.setVisible(false);
         panelPengembalian.setVisible(false);
         panelLaporanKomentar.setVisible(false);
+        panelLaporanSewa1.setVisible(false);
     }
 
     /**

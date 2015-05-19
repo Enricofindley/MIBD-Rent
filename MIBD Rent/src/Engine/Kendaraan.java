@@ -16,17 +16,19 @@ public class Kendaraan {
     private int kapasitas;
     private int hargaSewa;
     private String idJenis;
+    private String namaJenis;
     
     public Kendaraan(String id,String noPol,int kapas,int harga,String jenis){
         this.idKendaraan=id;
         this.noPolisi=noPol;
         this.kapasitas=kapas;
         this.hargaSewa=harga;
-        this.idJenis=jenis;
+       
+        this.namaJenis=jenis;
     }
     
     public int getHarga(){
-        return this.getHarga();
+        return this.hargaSewa;
     }
     
     public int getKap(){
@@ -40,8 +42,10 @@ public class Kendaraan {
         return this.noPolisi;
     }
     public String getjenisMerek(){
-        return this.idJenis;
+        return this.namaJenis;
     }
+    
+   
     
     
 }

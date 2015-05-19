@@ -27,7 +27,7 @@ public class TabelKendaraan extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 5;
     }
 
     @Override
@@ -36,14 +36,13 @@ public class TabelKendaraan extends AbstractTableModel {
             case 0:
                 return mobil.get(rowIndex).getId();
             case 1:
-                return mobil.get(rowIndex).getNoPol();
+                return mobil.get(rowIndex).getjenisMerek();
+      
             case 2:
                 return mobil.get(rowIndex).getNoPol();
             case 3:
-                return mobil.get(rowIndex).getNoPol();
-            case 4:
                 return mobil.get(rowIndex).getKap();
-            case 5:
+            case 4:
                 return mobil.get(rowIndex).getHarga();
             default:
                 return null;
@@ -54,16 +53,15 @@ public class TabelKendaraan extends AbstractTableModel {
         switch (column) {
             case 0:
                 return "ID";
+           
             case 1:
-                return "Jenis";
-            case 2:
                 return "Merek";
 
-            case 3:
+            case 2:
                 return "NoPol";
-            case 4:
+            case 3:
                 return "Kapasitas";
-            case 5:
+            case 4:
                 return "HargaSewa";
             default:
                 return null;

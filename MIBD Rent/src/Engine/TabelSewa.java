@@ -34,14 +34,16 @@ public class TabelSewa extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rent.get(rowIndex).getKTP();
+                return rent.get(rowIndex).getId();
             case 1:
-                return rent.get(rowIndex).getNamaPenyewa();
+                return rent.get(rowIndex).getKTP();
             case 2:
-                return rent.get(rowIndex).getidKendaraan();
+                return rent.get(rowIndex).getNamaPenyewa();
             case 3:
-                return rent.get(rowIndex).getMrek();
+                return rent.get(rowIndex).getidKendaraan();
             case 4:
+                return rent.get(rowIndex).getJenisKendaraan();
+            case 5:
                 return rent.get(rowIndex).getnoPol();
 
             default:
@@ -52,14 +54,16 @@ public class TabelSewa extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "ID penyewa";
+                return "ID transaksi";
             case 1:
-                return "Nama penyewa";
+                return "ID penyewa";
             case 2:
-                return "id kendaraan";
+                return "Nama penyewa";
             case 3:
-                return "jenis kendaraan";
+                return "id kendaraan";
             case 4:
+                return "jenis kendaraan";
+            case 5:
                 return "nopol";
 
             default:
