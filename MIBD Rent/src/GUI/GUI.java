@@ -213,31 +213,27 @@ public class GUI extends javax.swing.JFrame {
         panelHapusKomentar = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         buttonTambahKomentarCancel1 = new javax.swing.JButton();
         buttonTambahKomentarAdd1 = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jButton6 = new javax.swing.JButton();
+        textktpdel = new javax.swing.JTextField();
         panelEditKomentar = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         buttonTambahKomentarCancel2 = new javax.swing.JButton();
         buttonTambahKomentarAdd2 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
+        textKTPedit = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        textdescedit = new javax.swing.JTextArea();
         panelTambahKomentar = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         buttonTambahKomentarCancel = new javax.swing.JButton();
         buttonTambahKomentarAdd = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        textKTPinsert = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textdescinsert = new javax.swing.JTextArea();
         panelEditReceptionist = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -716,6 +712,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonJKendaraanAdd.setText("Add");
+        buttonJKendaraanAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonJKendaraanAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTambahJKendaraanLayout = new javax.swing.GroupLayout(panelTambahJKendaraan);
         panelTambahJKendaraan.setLayout(panelTambahJKendaraanLayout);
@@ -1399,8 +1400,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel44.setText("No. KTP");
 
-        jLabel45.setText("Komentar");
-
         buttonTambahKomentarCancel1.setText("Cancel");
         buttonTambahKomentarCancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1409,12 +1408,17 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonTambahKomentarAdd1.setText("Delete");
+        buttonTambahKomentarAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTambahKomentarAdd1ActionPerformed(evt);
+            }
+        });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jButton6.setText("Search");
+        textktpdel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textktpdelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHapusKomentarLayout = new javax.swing.GroupLayout(panelHapusKomentar);
         panelHapusKomentar.setLayout(panelHapusKomentarLayout);
@@ -1428,17 +1432,12 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(panelHapusKomentarLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel44))
-                .addGap(67, 67, 67)
+                .addComponent(jLabel44)
+                .addGap(75, 75, 75)
                 .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField9)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
-                .addGap(25, 25, 25))
+                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(textktpdel))
+                .addGap(25, 139, Short.MAX_VALUE))
         );
         panelHapusKomentarLayout.setVerticalGroup(
             panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1448,13 +1447,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
-                .addGap(18, 18, 18)
-                .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel45)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textktpdel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambahKomentarCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTambahKomentarAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1478,10 +1472,15 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonTambahKomentarAdd2.setText("Add");
+        buttonTambahKomentarAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTambahKomentarAdd2ActionPerformed(evt);
+            }
+        });
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        textdescedit.setColumns(20);
+        textdescedit.setRows(5);
+        jScrollPane3.setViewportView(textdescedit);
 
         javax.swing.GroupLayout panelEditKomentarLayout = new javax.swing.GroupLayout(panelEditKomentar);
         panelEditKomentar.setLayout(panelEditKomentarLayout);
@@ -1502,7 +1501,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(panelEditKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField10)
+                            .addComponent(textKTPedit)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
@@ -1514,7 +1513,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelEditKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textKTPedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEditKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel48)
@@ -1549,9 +1548,15 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textKTPinsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textKTPinsertActionPerformed(evt);
+            }
+        });
+
+        textdescinsert.setColumns(20);
+        textdescinsert.setRows(5);
+        jScrollPane1.setViewportView(textdescinsert);
 
         javax.swing.GroupLayout panelTambahKomentarLayout = new javax.swing.GroupLayout(panelTambahKomentar);
         panelTambahKomentar.setLayout(panelTambahKomentarLayout);
@@ -1572,7 +1577,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(panelTambahKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField8)
+                            .addComponent(textKTPinsert)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
@@ -1584,7 +1589,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelTambahKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textKTPinsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelTambahKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel42)
@@ -3415,7 +3420,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTambahKendaraanAddActionPerformed
 
     private void buttonTambahKomentarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAddActionPerformed
-        // TODO add your handling code here:
+        this.control.insertKomentar(this.textKTPinsert.getText(), this.textdescinsert.getText());
     }//GEN-LAST:event_buttonTambahKomentarAddActionPerformed
 
     private void buttonBackLaporanKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraanActionPerformed
@@ -3435,12 +3440,29 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void comboJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJActionPerformed
-               comboJ.addItem("sedan");
-               comboJ.addItem("pickup");
-               comboJ.addItem("limosin");
-               comboJ.addItem("truck");
-               comboJ.addItem("minivan");
+             
     }//GEN-LAST:event_comboJActionPerformed
+
+    private void buttonJKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJKendaraanAddActionPerformed
+        int banyak=-this.control.hashCode();
+        
+    }//GEN-LAST:event_buttonJKendaraanAddActionPerformed
+
+    private void textktpdelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textktpdelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textktpdelActionPerformed
+
+    private void buttonTambahKomentarAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAdd1ActionPerformed
+        this.control.insertKomentar(this.textktpdel.getText(), null);
+    }//GEN-LAST:event_buttonTambahKomentarAdd1ActionPerformed
+
+    private void textKTPinsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textKTPinsertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textKTPinsertActionPerformed
+
+    private void buttonTambahKomentarAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAdd2ActionPerformed
+        this.control.insertKomentar(this.textKTPedit.getText(), this.textdescedit.getText());
+    }//GEN-LAST:event_buttonTambahKomentarAdd2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3555,7 +3577,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -3627,7 +3648,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -3678,17 +3698,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField21;
@@ -3700,8 +3715,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel labelHapusKendaraanHargaSewa;
     private javax.swing.JLabel labelHapusKendaraanJenis;
     private javax.swing.JLabel labelHapusKendaraanNomorPolisi;
@@ -3750,8 +3763,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldTglKembaliPengembalian;
     private javax.swing.JTextField textID;
     private javax.swing.JTextField textKTP;
+    private javax.swing.JTextField textKTPedit;
+    private javax.swing.JTextField textKTPinsert;
     private javax.swing.JTextField textKapasitas;
     private javax.swing.JTextField textNama;
     private javax.swing.JTextField textNoPol;
+    private javax.swing.JTextArea textdescedit;
+    private javax.swing.JTextArea textdescinsert;
+    private javax.swing.JTextField textktpdel;
     // End of variables declaration//GEN-END:variables
 }

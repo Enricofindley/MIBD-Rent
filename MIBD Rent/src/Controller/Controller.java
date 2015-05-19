@@ -43,40 +43,37 @@ public class Controller {
     ArrayList<Penyewa> pesewa;
     ArrayList<Rental> rent;
     ArrayList<Rental> rental;
-    
-    
+
     String url;
 
     public Controller() {
         url = "jdbc:sqlserver://10.100.70.70;user=i13069;password=ryukishin;database=i13069";
-        pegawe=new ArrayList<Pegawai>();
+        pegawe = new ArrayList<Pegawai>();
         kendaraan = new ArrayList<Kendaraan>();
         pesewa = new ArrayList<Penyewa>();
-        rent=new ArrayList<Rental>();
-        rental=new ArrayList<Rental>();
+        rent = new ArrayList<Rental>();
+        rental = new ArrayList<Rental>();
         this.updateRental();
         this.updatePenyewa();
         this.updatePegawai();
         this.updateKendaraan();
         this.updateRentalSewa();
-        
-    }
 
-    
+    }
 
     public void updateKendaraan() {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select Kendaraan.ID_Kendaraan,Kendaraan.noPol,Kendaraan.Kapasitas,Kendaraan.Harga,Jenis_Kendaraan.id_Jenis,Jenis_Kendaraan.Nama_Jenis from Kendaraan join Jenis_Kendaraan on Kendaraan.id_jenis=Jenis_Kendaraan.ID_Jenis";
+            String query = "select Kendaraan.ID_Kendaraan,Kendaraan.noPol,Jenis_Kendaraan.Kapasitas,Kendaraan.biaya_sewa,Jenis_Kendaraan.id_Jenis,Jenis_Kendaraan.Nama_Jenis from Kendaraan join Jenis_Kendaraan on Kendaraan.id_jenis=Jenis_Kendaraan.ID_Jenis";
             ResultSet rs = sta.executeQuery(query);
             while (rs.next()) {
                 String id = rs.getString("ID_Kendaraan");
                 String nopol = rs.getString("noPol");
-                int kapas=rs.getInt("Kapasitas");
-                int harga=rs.getInt("Harga");
-                String jenis= rs.getString("Nama_Jenis");
-                Kendaraan k=new Kendaraan(id,nopol,kapas,harga,jenis);
+                int kapas = rs.getInt("Kapasitas");
+                int harga = rs.getInt("biaya_sewa");
+                String jenis = rs.getString("Nama_Jenis");
+                Kendaraan k = new Kendaraan(id, nopol, kapas, harga, jenis);
                 this.kendaraan.add(k);
             }
             rs.close();
@@ -94,14 +91,14 @@ public class Controller {
             Statement sta = conn.createStatement();
             String query = "select no_KTP,nama,komentar,alamat from Penyewa";
             ResultSet rs = sta.executeQuery(query);
-            
+
             while (rs.next()) {
                 String id = rs.getString("no_KTP");
                 String nama = rs.getString("Nama");
                 String alamat = rs.getString("alamat");
                 String komentar = rs.getString("komentar");
                 komentar = rs.getString("komentar");
-                Penyewa sewa=new Penyewa(id,nama,alamat,komentar);
+                Penyewa sewa = new Penyewa(id, nama, alamat, komentar);
                 pesewa.add(sewa);
             }
             rs.close();
@@ -112,19 +109,19 @@ public class Controller {
         }
 
     }
-    
+
     public void updateRental() {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select no_ktp,biaya_sewa,tanggal_sewa from Rental ";
+            String query = "select no_ktp,Kendaraan.biaya_sewa,tanggal_sewa from Rental join Kendaraan on Rental.id_kendaraan=Kendaraan.id_kendaraan";
             ResultSet rs = sta.executeQuery(query);
-            
+
             while (rs.next()) {
                 String id = rs.getString("no_KTP");
                 int biaya = rs.getInt("biaya_sewa");
                 String tanggal = rs.getString("tanggal_sewa");
-                Rental sewa=new Rental(id,biaya,tanggal);
+                Rental sewa = new Rental(id, biaya, tanggal);
                 rent.add(sewa);
             }
             rs.close();
@@ -135,25 +132,25 @@ public class Controller {
         }
 
     }
-    
+
     public void updateRentalSewa() {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
             String query = "select Rental.id_transaksi,Penyewa.no_ktp,Penyewa.nama,Kendaraan.ID_Kendaraan,jenis_kendaraan.id_jenis,Jenis_Kendaraan.Nama_Jenis,Kendaraan.nopol from rental left join Penyewa on rental.no_ktp=penyewa.no_ktp left join Kendaraan on rental.ID_Kendaraan=Kendaraan.ID_Kendaraan left join Jenis_kendaraan on Kendaraan.id_jenis=Jenis_kendaraan.id_jenis";
             ResultSet rs = sta.executeQuery(query);
-            
+
             while (rs.next()) {
-                String idtrans=rs.getString("id_transaksi");
+                String idtrans = rs.getString("id_transaksi");
                 String id = rs.getString("no_ktp");
-                String  nama = rs.getString("nama");
+                String nama = rs.getString("nama");
                 String idK = rs.getString("ID_kendaraan");
                 String jenis = rs.getString("nama_jenis");
                 String nopol = rs.getString("noPol");
                 String namajenis = rs.getString("Nama_Jenis");
-                Penyewa pesewa=new Penyewa(id,nama,"","");
-                Kendaraan car=new Kendaraan(idK,nopol,0,0,jenis);
-                Rental sewa=new Rental(idtrans,pesewa,car);
+                Penyewa pesewa = new Penyewa(id, nama, "", "");
+                Kendaraan car = new Kendaraan(idK, nopol, 0, 0, jenis);
+                Rental sewa = new Rental(idtrans, pesewa, car);
                 rental.add(sewa);
             }
             rs.close();
@@ -165,13 +162,24 @@ public class Controller {
 
     }
 
-    public void insertPegawai(String IdPegawai, String nama) {
+    public void insertPegawai(String nama) {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "INSERTINTO [Pegawai] ([IdPegawai], [nama], [isManager]) VALUES (" + IdPegawai + "," + nama + ",false)";
+            int banyak = this.pegawe.size();
+            String id = "" + banyak;
+            for (int i = id.length(); i < 8; i++) {
+                id = "0" + id;
+            }
+            String query = "select nama from pegawai while nama=" + nama;
             ResultSet rs = sta.executeQuery(query);
+            String name = rs.getString("nama");
+            if (name.equalsIgnoreCase("")) {
 
+            } else {
+                query = "INSERTINTO [Pegawai] VALUES ('" + id + "','" + nama + "','false')";
+                rs = sta.executeQuery(query);
+            }
             rs.close();
             conn.close();
 
@@ -180,13 +188,13 @@ public class Controller {
         }
     }
 
-    public void insertKendaraan(String idKendaraan, String noPol ,int sewa,int kapas,String idJenis) {
+    public void insertKendaraan(String idKendaraan, String noPol, int sewa, int kapas, String idJenis) {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "INSERTINTO [Kendaraan]  VALUES (" + idKendaraan + "," + noPol + "," + kapas +"," + sewa +"," + idJenis + ")";
+            String query = "INSERTINTO [Kendaraan]  VALUES (" + idKendaraan + "," + noPol + "," + kapas + "," + sewa + "," + idJenis + ")";
             ResultSet rs = sta.executeQuery(query);
-            Kendaraan mobil=new Kendaraan(idKendaraan,noPol,sewa,kapas,idJenis);
+            Kendaraan mobil = new Kendaraan(idKendaraan, noPol, sewa, kapas, idJenis);
             this.kendaraan.add(mobil);
             rs.close();
             conn.close();
@@ -195,20 +203,34 @@ public class Controller {
             System.out.println(e.toString());
         }
     }
-    
-    public void insertKomentar(String noKTP, String komentar){
+
+    public void insertKomentar(String noKTP, String komentar) {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select no_KTP,nama,alamat,komentar from penyewa while no_ktp="+noKTP+";";
-            ResultSet rs = sta.executeQuery(query);
-            String nama=rs.getString("nama");
-            String alamat=rs.getString("alamat");
-            query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
-            rs = sta.executeQuery(query);
-            Penyewa sewa=new Penyewa(noKTP,nama,alamat,komentar);
-            this.pesewa.add(sewa);
-            rs.close();
+            int i = 1000;
+            int index = 0;
+            while (index < this.pesewa.size()) {
+                if (noKTP.equalsIgnoreCase(this.pesewa.get(index).getNoKTP())) {
+                    i = index;
+                }
+                index++;
+            }
+            if (i == 1000) {
+
+            } else {
+
+                ResultSet rs;
+                String alamat = this.pesewa.get(i).getAlamat();
+                String nama = this.pesewa.get(i).getNama();
+                String query = "INSERTINTO [Penyewa]  VALUES ('" + komentar + "','" + nama + "','" + alamat + "','" + noKTP + "')";
+                rs = sta.executeQuery(query);
+                Penyewa sewa = new Penyewa(noKTP, nama, alamat, komentar);
+                this.pesewa.remove(i);
+                this.pesewa.add(sewa);
+                rs.close();
+            }
+            
             conn.close();
 
         } catch (SQLException e) {
@@ -222,17 +244,16 @@ public class Controller {
             Statement sta = conn.createStatement();
             String query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
             ResultSet rs = sta.executeQuery(query);
-            Penyewa sewa=new Penyewa(noKTP,nama,alamat,komentar);
+            Penyewa sewa = new Penyewa(noKTP, nama, alamat, komentar);
             this.pesewa.add(sewa);
             rs.close();
             conn.close();
-            
+
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
     }
 
-    
     public void updatePegawai() {
         try {
             Connection conn = DriverManager.getConnection(url);
@@ -243,9 +264,9 @@ public class Controller {
                 String id = rs.getString("EmployeeId");
                 String nama = rs.getString("nama");
                 String manager = rs.getString("Status_Jabatan");
-                Pegawai p=new Pegawai(id,nama,manager);
+                Pegawai p = new Pegawai(id, nama, manager);
                 pegawe.add(p);
-               
+
             }
             rs.close();
             conn.close();
@@ -257,36 +278,37 @@ public class Controller {
     }
 
     public TableModel tabelPegawai() {
-        
-        TabelPegawai table=new TabelPegawai(this.pegawe);
-        
+
+        TabelPegawai table = new TabelPegawai(this.pegawe);
+
         return table;
-        
+
     }
+
     public TableModel tabelKendaraan() {
-        
-        TabelKendaraan table=new TabelKendaraan(this.kendaraan);
-        
+
+        TabelKendaraan table = new TabelKendaraan(this.kendaraan);
+
         return table;
-        
+
     }
-    
+
     public TableModel tabelKomentar() {
-        
-        TabelKomentar table=new TabelKomentar(this.pesewa);
+
+        TabelKomentar table = new TabelKomentar(this.pesewa);
         return table;
     }
-    
+
     public TableModel tabelKeuangan() {
-        
-        TabelRental table=new TabelRental(this.rent);
+
+        TabelRental table = new TabelRental(this.rent);
         return table;
     }
-    
+
     public TableModel tabelsewa() {
-        
-        TabelSewa table=new TabelSewa(this.rental);
-        
+
+        TabelSewa table = new TabelSewa(this.rental);
+
         return table;
     }
 

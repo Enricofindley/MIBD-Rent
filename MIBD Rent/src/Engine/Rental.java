@@ -49,7 +49,7 @@ public class Rental {
     }
     public String getNamaPenyewa(){
         
-        return this.namaPenyewa;
+        return this.pesewa.getNama();
     }
     
 }
