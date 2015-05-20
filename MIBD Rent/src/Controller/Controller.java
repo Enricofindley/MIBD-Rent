@@ -63,6 +63,28 @@ public class Controller {
         this.updateRentalSewa();
 
     }
+    
+    public void updateJenisKendaraan() {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String query = "select id_jenis,nama_jenis,kapasitas from jenis_kendaraan";
+            ResultSet rs = sta.executeQuery(query);
+            while (rs.next()) {
+                String id = rs.getString("id_jenis");
+                String nama = rs.getString("nama_jenis");
+                int kapas = rs.getInt("kapasitas");
+                JenisKendaraan k = new JenisKendaraan(Integer.parseInt(id),nama,kapas);
+                this.jk.add(k);
+            }
+            rs.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+    }
 
     public void updateKendaraan() {
         try {
