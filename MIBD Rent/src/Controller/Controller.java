@@ -9,6 +9,7 @@ package Controller;
  *
  * @author RickyWahyudi
  */
+import Engine.JenisKendaraan;
 import Engine.Kendaraan;
 import Engine.Pegawai;
 import Engine.Penyewa;
@@ -43,6 +44,7 @@ public class Controller {
     ArrayList<Penyewa> pesewa;
     ArrayList<Rental> rent;
     ArrayList<Rental> rental;
+    ArrayList<JenisKendaraan> jk;
 
     String url;
 
@@ -53,6 +55,7 @@ public class Controller {
         pesewa = new ArrayList<Penyewa>();
         rent = new ArrayList<Rental>();
         rental = new ArrayList<Rental>();
+        jk=new ArrayList<JenisKendaraan>();
         this.updateRental();
         this.updatePenyewa();
         this.updatePegawai();
@@ -114,11 +117,11 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select no_ktp,Kendaraan.biaya_sewa,tanggal_sewa from Rental join Kendaraan on Rental.id_kendaraan=Kendaraan.id_kendaraan";
+            String query = "select id_transaksi,Kendaraan.biaya_sewa,tanggal_sewa from Rental join Kendaraan on Rental.id_kendaraan=Kendaraan.id_kendaraan";
             ResultSet rs = sta.executeQuery(query);
 
             while (rs.next()) {
-                String id = rs.getString("no_KTP");
+                String id = rs.getString("id_transaksi");
                 int biaya = rs.getInt("biaya_sewa");
                 String tanggal = rs.getString("tanggal_sewa");
                 Rental sewa = new Rental(id, biaya, tanggal);

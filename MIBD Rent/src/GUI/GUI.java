@@ -3440,7 +3440,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void comboJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJActionPerformed
-             
+        
     }//GEN-LAST:event_comboJActionPerformed
 
     private void buttonJKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJKendaraanAddActionPerformed
