@@ -133,6 +133,29 @@ public class Controller {
 
     }
 
+    public void updatePegawai() {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String query = "select EmployeeId,nama,Status_Jabatan from Pegawai";
+            ResultSet rs = sta.executeQuery(query);
+            while (rs.next()) {
+                String id = rs.getString("EmployeeId");
+                String nama = rs.getString("nama");
+                String manager = rs.getString("Status_Jabatan");
+                Pegawai p = new Pegawai(id, nama, manager);
+                pegawe.add(p);
+
+            }
+            rs.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+    }
+
     public void updateRentalSewa() {
         try {
             Connection conn = DriverManager.getConnection(url);
@@ -171,16 +194,26 @@ public class Controller {
             for (int i = id.length(); i < 8; i++) {
                 id = "0" + id;
             }
-            String query = "select nama from pegawai while nama=" + nama;
-            ResultSet rs = sta.executeQuery(query);
-            String name = rs.getString("nama");
-            if (name.equalsIgnoreCase("")) {
+            int i = 1000;
+            int index = 0;
+            while (index < this.pesewa.size()) {
+                if (nama.equalsIgnoreCase(this.pesewa.get(index).getNama())) {
+                    i = index;
+                }
+                index++;
+            }
+            if (i == 1000) {
 
             } else {
-                query = "INSERTINTO [Pegawai] VALUES ('" + id + "','" + nama + "','false')";
-                rs = sta.executeQuery(query);
+                
+                String query = "INSERTINTO [Pegawai] VALUES ('" + id + "','" + nama + "','false')";
+                sta.execute(query);
+                Pegawai pegawai=new Pegawai(id,nama,"false");
+                this.pegawe.add(pegawai);
             }
-            rs.close();
+                
+            
+           
             conn.close();
 
         } catch (SQLException e) {
@@ -220,17 +253,16 @@ public class Controller {
 
             } else {
 
-                ResultSet rs;
                 String alamat = this.pesewa.get(i).getAlamat();
                 String nama = this.pesewa.get(i).getNama();
                 String query = "INSERTINTO [Penyewa]  VALUES ('" + komentar + "','" + nama + "','" + alamat + "','" + noKTP + "')";
-                rs = sta.executeQuery(query);
+                sta.execute(query);
                 Penyewa sewa = new Penyewa(noKTP, nama, alamat, komentar);
                 this.pesewa.remove(i);
                 this.pesewa.add(sewa);
-                rs.close();
+                
             }
-            
+
             conn.close();
 
         } catch (SQLException e) {
@@ -242,39 +274,31 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "INSERTINTO [Penyewa] ([noKTP], [nama],[alamat],[komentar]) VALUES (" + noKTP + "," + nama + "," + alamat + "," + komentar + ")";
-            ResultSet rs = sta.executeQuery(query);
-            Penyewa sewa = new Penyewa(noKTP, nama, alamat, komentar);
-            this.pesewa.add(sewa);
-            rs.close();
-            conn.close();
-
-        } catch (SQLException e) {
-            System.out.println(e.toString());
-        }
-    }
-
-    public void updatePegawai() {
-        try {
-            Connection conn = DriverManager.getConnection(url);
-            Statement sta = conn.createStatement();
-            String query = "select EmployeeId,nama,Status_Jabatan from Pegawai";
-            ResultSet rs = sta.executeQuery(query);
-            while (rs.next()) {
-                String id = rs.getString("EmployeeId");
-                String nama = rs.getString("nama");
-                String manager = rs.getString("Status_Jabatan");
-                Pegawai p = new Pegawai(id, nama, manager);
-                pegawe.add(p);
+            int i = 1000;
+            int index = 0;
+            while (index < this.pesewa.size()) {
+                if (noKTP.equalsIgnoreCase(this.pesewa.get(index).getNoKTP())) {
+                    i = index;
+                }
+                index++;
+            }
+            if (i == 1000) {
+                ResultSet rs;
+                String query = "INSERTINTO [Penyewa]  VALUES ('" + komentar + "','" + nama + "','" + alamat + "','" + noKTP + "')";
+                rs = sta.executeQuery(query);
+                Penyewa sewa = new Penyewa(noKTP, nama, alamat, komentar);
+                this.pesewa.remove(i);
+                this.pesewa.add(sewa);
+                rs.close();
+            } else {
 
             }
-            rs.close();
+
             conn.close();
 
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
-
     }
 
     public TableModel tabelPegawai() {
