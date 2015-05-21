@@ -12,9 +12,13 @@ package Engine;
 public class JenisKendaraan {
     private int id;
     private String nama;
-    public JenisKendaraan(int idJ,String namaJ){
+    private int kapasitas;
+    private int harga;
+    public JenisKendaraan(int idJ,String namaJ, int jkapasitas,int harga){
         this.id=idJ;
         this.nama=namaJ;
+        this.kapasitas=jkapasitas;
+        this.harga=harga;
     }
     
     public int getId(){
@@ -22,5 +26,11 @@ public class JenisKendaraan {
     }
     public String getNama(){
         return this.nama;
+    }
+    public int kapastitas(){
+        return this.kapasitas;
+    }
+    public int getharga(){
+        return this.harga;
     }
 }

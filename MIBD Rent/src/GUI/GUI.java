@@ -1,6 +1,5 @@
 package GUI;
 
-
 import java.util.Arrays;
 import Engine.Kendaraan;
 import Engine.Pegawai;
@@ -17,7 +16,6 @@ import javax.swing.JTable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Adrian
@@ -25,40 +23,43 @@ import javax.swing.JTable;
 public class GUI extends javax.swing.JFrame {
 
     private int accessPrivilage;
-    char[] managerchar=new char[7];
-    char[] employeechar=new char[12];
+    char[] managerchar = new char[7];
+    char[] employeechar = new char[12];
     Controller control;
+
     /**
      * Creates new form GUI
      */
     public GUI() throws IOException, ClassNotFoundException {
         initComponents();
-        accessPrivilage=0;
-        managerchar[0]='m';
-        managerchar[1]='a';
-        managerchar[2]='n';
-        managerchar[3]='a';
-        managerchar[4]='g';
-        managerchar[5]='e';
-        managerchar[6]='r';
-        employeechar[0]='r';
-        employeechar[1]='e';
-        employeechar[2]='c';
-        employeechar[3]='e';
-        employeechar[4]='p';
-        employeechar[5]='t';
-        employeechar[6]='i';
-        employeechar[7]='o';
-        employeechar[8]='n';
-        employeechar[9]='i';
-        employeechar[10]='s';
-        employeechar[11]='t';
+        accessPrivilage = 0;
+        managerchar[0] = 'm';
+        managerchar[1] = 'a';
+        managerchar[2] = 'n';
+        managerchar[3] = 'a';
+        managerchar[4] = 'g';
+        managerchar[5] = 'e';
+        managerchar[6] = 'r';
+        employeechar[0] = 'r';
+        employeechar[1] = 'e';
+        employeechar[2] = 'c';
+        employeechar[3] = 'e';
+        employeechar[4] = 'p';
+        employeechar[5] = 't';
+        employeechar[6] = 'i';
+        employeechar[7] = 'o';
+        employeechar[8] = 'n';
+        employeechar[9] = 'i';
+        employeechar[10] = 's';
+        employeechar[11] = 't';
+
         disableAllPanelVisibility();
         panelHome.setVisible(true);
-        this.control=new Controller();
+        this.control = new Controller();
+
     }
-    
-    public void disableAllPanelVisibility(){
+
+    public void disableAllPanelVisibility() {
         panelManager.setVisible(false);
         panelEmployee.setVisible(false);
         panelHome.setVisible(false);
@@ -87,6 +88,10 @@ public class GUI extends javax.swing.JFrame {
         panelPengembalian.setVisible(false);
         panelLaporanKomentar.setVisible(false);
         panelLaporanSewa1.setVisible(false);
+        panelHapusPegawai.setVisible(false);
+        panelInsertPegawai.setVisible(false);
+        panelLaporanPengembalian.setVisible(false);
+
     }
 
     /**
@@ -138,6 +143,10 @@ public class GUI extends javax.swing.JFrame {
         fieldTambahJ = new javax.swing.JTextField();
         buttonJKendaraan = new javax.swing.JButton();
         buttonJKendaraanAdd = new javax.swing.JButton();
+        jLabel66 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jenisHarga = new javax.swing.JTextField();
         panelReceptionist = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         radioReceptionistPenyewaan = new javax.swing.JRadioButton();
@@ -156,6 +165,7 @@ public class GUI extends javax.swing.JFrame {
         buttonLaporanKomentar = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         panelHapusJKendaraan = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -166,24 +176,24 @@ public class GUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        namajenisedit = new javax.swing.JTextField();
         buttonEditJCancel = new javax.swing.JButton();
         buttonEditJAdd = new javax.swing.JButton();
         jLabel129 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        kapasitasedit = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        hargasewaedit = new javax.swing.JTextField();
         panelTambahKendaraan = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        comboJ = new javax.swing.JComboBox();
-        jLabel22 = new javax.swing.JLabel();
-        textID = new javax.swing.JTextField();
+        jComboBox = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         textNoPol = new javax.swing.JTextField();
         textKapasitas = new javax.swing.JTextField();
         buttonTambahKendaraanCancel = new javax.swing.JButton();
         buttonTambahKendaraanAdd = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        TextHarga = new javax.swing.JTextField();
         panelEditKendaraan = new javax.swing.JPanel();
         jComboBox6 = new javax.swing.JComboBox();
         jLabel25 = new javax.swing.JLabel();
@@ -192,24 +202,21 @@ public class GUI extends javax.swing.JFrame {
         jComboBox12 = new javax.swing.JComboBox();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        editKapasitas = new javax.swing.JTextField();
+        editnoPol = new javax.swing.JTextField();
         buttonEditKendaraanCancel = new javax.swing.JButton();
         buttonEditKendaraanEdit = new javax.swing.JButton();
         panelHapusKendaraan = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jComboBox13 = new javax.swing.JComboBox();
         jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         labelHapusKendaraanJenis = new javax.swing.JLabel();
         labelHapusKendaraanNomorPolisi = new javax.swing.JLabel();
-        labelHapusKendaraanHargaSewa = new javax.swing.JLabel();
         buttonHapusKendaraanCancel = new javax.swing.JButton();
         buttonHapusKendaraanDelete = new javax.swing.JButton();
+        show = new javax.swing.JButton();
         panelHapusKomentar = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
@@ -242,8 +249,9 @@ public class GUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jComboBox9 = new javax.swing.JComboBox();
-        jLabel54 = new javax.swing.JLabel();
+        labelEditR = new javax.swing.JLabel();
         jComboBox21 = new javax.swing.JComboBox();
+        showEdit = new javax.swing.JButton();
         panelTambahPenyewa = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
@@ -280,30 +288,31 @@ public class GUI extends javax.swing.JFrame {
         jLabel81 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
-        jLabel85 = new javax.swing.JLabel();
         buttonTambahPeminjamanCancel = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jComboBox14 = new javax.swing.JComboBox();
         jComboBox15 = new javax.swing.JComboBox();
         jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
+        jLabel61 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        labelNamaTambah = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        comptambah = new javax.swing.JComboBox();
         panelEditPeminjaman = new javax.swing.JPanel();
         jLabel86 = new javax.swing.JLabel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
-        jLabel92 = new javax.swing.JLabel();
-        jLabel93 = new javax.swing.JLabel();
         buttonEditPemnijamanCancel = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jComboBox16 = new javax.swing.JComboBox();
         jComboBox17 = new javax.swing.JComboBox();
         jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        comptambah1 = new javax.swing.JComboBox();
+        jLabel92 = new javax.swing.JLabel();
+        jComboBox18 = new javax.swing.JComboBox();
         panelHapusPeminjaman = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jLabel97 = new javax.swing.JLabel();
@@ -311,15 +320,14 @@ public class GUI extends javax.swing.JFrame {
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
         jLabel101 = new javax.swing.JLabel();
-        jLabel102 = new javax.swing.JLabel();
         buttonHapusPeminjamanCancel = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jLabel103 = new javax.swing.JLabel();
-        jLabel104 = new javax.swing.JLabel();
-        jLabel105 = new javax.swing.JLabel();
-        jLabel106 = new javax.swing.JLabel();
+        hapusnama = new javax.swing.JLabel();
+        hapusjenis = new javax.swing.JLabel();
+        hapustanggal = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
-        jLabel108 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox();
+        jButton17 = new javax.swing.JButton();
         panelLaporanKendaraan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabelKendaraan = new javax.swing.JTable();
@@ -343,16 +351,12 @@ public class GUI extends javax.swing.JFrame {
         buttonPenyewaanBack = new javax.swing.JButton();
         panelPengembalian = new javax.swing.JPanel();
         jLabel121 = new javax.swing.JLabel();
-        jLabel122 = new javax.swing.JLabel();
         jLabel123 = new javax.swing.JLabel();
         jLabel125 = new javax.swing.JLabel();
         buttonCancelPengembalian = new javax.swing.JButton();
         buttonAddPengembalian = new javax.swing.JButton();
         comboBoxIDKendaraanPengembalian = new javax.swing.JComboBox();
-        textFieldIDPengembalian = new javax.swing.JTextField();
         textFieldTglKembaliPengembalian = new javax.swing.JTextField();
-        jLabel127 = new javax.swing.JLabel();
-        comboBoxNOKTPPengembalian = new javax.swing.JComboBox();
         panelLaporanKomentar = new javax.swing.JPanel();
         buttonBackLaporanKendaraan3 = new javax.swing.JButton();
         jLabel131 = new javax.swing.JLabel();
@@ -363,6 +367,26 @@ public class GUI extends javax.swing.JFrame {
         tabelSewa1 = new javax.swing.JTable();
         buttonBackLaporanSewa1 = new javax.swing.JButton();
         jLabel112 = new javax.swing.JLabel();
+        panelInsertPegawai = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        textTambahP = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        panelHapusPegawai = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        panelLaporanPengembalian = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelPeng = new javax.swing.JTable();
+        jLabel30 = new javax.swing.JLabel();
+        jButton16 = new javax.swing.JButton();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(505, 323));
 
@@ -718,28 +742,38 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel66.setText("Kapasitas                               :");
+
+        jLabel22.setText("Harga");
+
         javax.swing.GroupLayout panelTambahJKendaraanLayout = new javax.swing.GroupLayout(panelTambahJKendaraan);
         panelTambahJKendaraan.setLayout(panelTambahJKendaraanLayout);
         panelTambahJKendaraanLayout.setHorizontalGroup(
             panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel12))
-                    .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(buttonJKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
+                            .addComponent(jLabel66))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(buttonJKendaraanAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104))
+                    .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
                         .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(fieldTambahJ, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(buttonJKendaraanAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel22))
+                        .addGap(34, 34, 34)
+                        .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField4)
+                            .addComponent(fieldTambahJ, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(jenisHarga))
+                        .addGap(85, 85, 85))))
+            .addGroup(panelTambahJKendaraanLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel12)
+                .addGap(76, 76, 76))
         );
         panelTambahJKendaraanLayout.setVerticalGroup(
             panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -750,11 +784,19 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(fieldTambahJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonJKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(buttonJKendaraanAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel66)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jenisHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(panelTambahJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonJKendaraanAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonJKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         panelReceptionist.setPreferredSize(new java.awt.Dimension(505, 323));
@@ -928,6 +970,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton15.setText("Pengembalian");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLaporanLayout = new javax.swing.GroupLayout(panelLaporan);
         panelLaporan.setLayout(panelLaporanLayout);
         panelLaporanLayout.setHorizontalGroup(
@@ -938,16 +987,17 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(194, 194, 194)
                         .addComponent(jLabel4))
                     .addGroup(panelLaporanLayout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLaporanLayout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addGroup(panelLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buttonLaporanDataKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonLaporanDataPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonLaporanKomentar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonLaporanSewaKendaraan, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelLaporanLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(209, Short.MAX_VALUE))
         );
         panelLaporanLayout.setVerticalGroup(
@@ -965,9 +1015,11 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(buttonLaporanSewaKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLaporanKomentar)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton15)
+                .addGap(18, 18, 18)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         panelHapusJKendaraan.setPreferredSize(new java.awt.Dimension(505, 323));
@@ -977,6 +1029,17 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel16.setText("Jenis Kendaraan                    :");
 
+        jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox2MouseClicked(evt);
+            }
+        });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
         buttonHapusJCancel.setText("Cancel");
         buttonHapusJCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -985,6 +1048,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonHapusJDelete.setText("Delete");
+        buttonHapusJDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusJDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHapusJKendaraanLayout = new javax.swing.GroupLayout(panelHapusJKendaraan);
         panelHapusJKendaraan.setLayout(panelHapusJKendaraanLayout);
@@ -1033,6 +1101,12 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel15.setText("Jenis Kendaraan                    :");
 
+        namajenisedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namajeniseditActionPerformed(evt);
+            }
+        });
+
         buttonEditJCancel.setText("Cancel");
         buttonEditJCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1041,8 +1115,17 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonEditJAdd.setText("Edit");
+        buttonEditJAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditJAddActionPerformed(evt);
+            }
+        });
 
         jLabel129.setText("Input Jenis Kendaraan Baru");
+
+        jLabel36.setText("kapasitas");
+
+        jLabel39.setText("harga sewa");
 
         javax.swing.GroupLayout panelEditJKendaraanLayout = new javax.swing.GroupLayout(panelEditJKendaraan);
         panelEditJKendaraan.setLayout(panelEditJKendaraanLayout);
@@ -1055,18 +1138,24 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel14))
                     .addGroup(panelEditJKendaraanLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel129, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(29, 29, 29)
-                        .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelEditJKendaraanLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(buttonEditJCancel)
-                        .addGap(70, 70, 70)
-                        .addComponent(buttonEditJAdd)))
+                        .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel36)
+                            .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel129, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonEditJCancel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel39))
+                        .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelEditJKendaraanLayout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(buttonEditJAdd))
+                            .addGroup(panelEditJKendaraanLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(namajenisedit, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(kapasitasedit)
+                                    .addComponent(hargasewaedit))))))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         panelEditJKendaraanLayout.setVerticalGroup(
@@ -1080,13 +1169,21 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(namajenisedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel129))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(kapasitasedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(hargasewaedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelEditJKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonEditJCancel)
                     .addComponent(buttonEditJAdd))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         panelTambahKendaraan.setMinimumSize(new java.awt.Dimension(505, 323));
@@ -1096,17 +1193,18 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel19.setText("Jenis Kendaraan");
 
-        comboJ.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxMouseClicked(evt);
+            }
+        });
+        jComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboJActionPerformed(evt);
+                jComboBoxActionPerformed(evt);
             }
         });
 
-        jLabel22.setText("ID ");
-
         jLabel23.setText("Nomor Polisi");
-
-        jLabel24.setText("Biaya Sewa");
 
         buttonTambahKendaraanCancel.setText("Cancel");
         buttonTambahKendaraanCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -1138,16 +1236,12 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
                         .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel24))
+                            .addComponent(jLabel23))
                         .addGap(26, 26, 26)
                         .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboJ, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textID)
-                            .addComponent(textNoPol)
-                            .addComponent(TextHarga, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textNoPol)))
                     .addGroup(panelTambahKendaraanLayout.createSequentialGroup()
                         .addComponent(buttonTambahKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
@@ -1162,20 +1256,12 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(comboJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(textNoPol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(TextHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(56, 56, 56)
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(textKapasitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1183,10 +1269,16 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelTambahKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambahKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTambahKendaraanAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         panelEditKendaraan.setPreferredSize(new java.awt.Dimension(505, 323));
+
+        jComboBox6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox6MouseClicked(evt);
+            }
+        });
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel25.setText("Edit Kendaraan");
@@ -1195,21 +1287,24 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel33.setText("ID");
 
+        jComboBox12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox12MouseClicked(evt);
+            }
+        });
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox12ActionPerformed(evt);
             }
         });
 
-        jLabel34.setText("ID baru");
+        jLabel34.setText("kapasitas");
 
         jLabel35.setText("Nomor polisi");
 
-        jLabel36.setText("Biaya Sewa");
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        editKapasitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                editKapasitasActionPerformed(evt);
             }
         });
 
@@ -1221,6 +1316,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonEditKendaraanEdit.setText("Edit");
+        buttonEditKendaraanEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditKendaraanEditActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelEditKendaraanLayout = new javax.swing.GroupLayout(panelEditKendaraan);
         panelEditKendaraan.setLayout(panelEditKendaraanLayout);
@@ -1234,17 +1334,15 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26)
                             .addComponent(jLabel34)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36))
+                            .addComponent(jLabel35))
                         .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelEditKendaraanLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(editKapasitas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(editnoPol, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelEditKendaraanLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1273,16 +1371,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editKapasitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(editnoPol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(panelEditKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonEditKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonEditKendaraanEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1294,6 +1388,16 @@ public class GUI extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel37.setText("Hapus Kendaraan");
 
+        jComboBox13.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox13ItemStateChanged(evt);
+            }
+        });
+        jComboBox13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox13MouseClicked(evt);
+            }
+        });
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox13ActionPerformed(evt);
@@ -1302,8 +1406,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel38.setText("ID");
 
-        jLabel39.setText("Harga Sewa per hari :");
-
         jLabel40.setText("Nomor polisi              :");
 
         jLabel31.setText("Jenis Kendaraan       :");
@@ -1311,8 +1413,6 @@ public class GUI extends javax.swing.JFrame {
         labelHapusKendaraanJenis.setText("....");
 
         labelHapusKendaraanNomorPolisi.setText("....");
-
-        labelHapusKendaraanHargaSewa.setText(".....");
 
         buttonHapusKendaraanCancel.setText("Cancel");
         buttonHapusKendaraanCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -1328,6 +1428,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        show.setText("Show");
+        show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelHapusKendaraanLayout = new javax.swing.GroupLayout(panelHapusKendaraan);
         panelHapusKendaraan.setLayout(panelHapusKendaraanLayout);
         panelHapusKendaraanLayout.setHorizontalGroup(
@@ -1340,30 +1447,27 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel40))
+                        .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
                                 .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel31)
-                                    .addComponent(jLabel40))
-                                .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelHapusKendaraanJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(labelHapusKendaraanNomorPolisi, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelHapusKendaraanJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
-                                .addComponent(jLabel39)
                                 .addGap(18, 18, 18)
-                                .addComponent(labelHapusKendaraanHargaSewa, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(buttonHapusKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(buttonHapusKendaraanDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                                .addComponent(labelHapusKendaraanNomorPolisi, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(panelHapusKendaraanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonHapusKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(show)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonHapusKendaraanDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         panelHapusKendaraanLayout.setVerticalGroup(
             panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,14 +1486,11 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
                     .addComponent(labelHapusKendaraanNomorPolisi))
-                .addGap(18, 18, 18)
-                .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(labelHapusKendaraanHargaSewa))
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addGroup(panelHapusKendaraanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonHapusKendaraanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonHapusKendaraanDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonHapusKendaraanDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(show, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
 
@@ -1425,19 +1526,20 @@ public class GUI extends javax.swing.JFrame {
         panelHapusKomentarLayout.setHorizontalGroup(
             panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHapusKomentarLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(buttonTambahKomentarCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(buttonTambahKomentarAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelHapusKomentarLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(buttonTambahKomentarCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(buttonTambahKomentarAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelHapusKomentarLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel44)
+                        .addGap(75, 75, 75)
+                        .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(textktpdel))))
                 .addContainerGap(139, Short.MAX_VALUE))
-            .addGroup(panelHapusKomentarLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel44)
-                .addGap(75, 75, 75)
-                .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(textktpdel))
-                .addGap(25, 139, Short.MAX_VALUE))
         );
         panelHapusKomentarLayout.setVerticalGroup(
             panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1448,7 +1550,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
                     .addComponent(textktpdel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addGroup(panelHapusKomentarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambahKomentarCancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTambahKomentarAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1626,9 +1728,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel54.setText("....");
+        jComboBox9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox9MouseClicked(evt);
+            }
+        });
+
+        labelEditR.setText("....");
 
         jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Receptionist" }));
+
+        showEdit.setText("show");
+        showEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showEditActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelEditReceptionistLayout = new javax.swing.GroupLayout(panelEditReceptionist);
         panelEditReceptionist.setLayout(panelEditReceptionistLayout);
@@ -1639,7 +1754,9 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(panelEditReceptionistLayout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(jButton4)
-                        .addGap(113, 113, 113)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(showEdit)
+                        .addGap(24, 24, 24)
                         .addComponent(jButton5))
                     .addGroup(panelEditReceptionistLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
@@ -1656,12 +1773,12 @@ public class GUI extends javax.swing.JFrame {
                                         .addGap(6, 6, 6)
                                         .addGroup(panelEditReceptionistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel50)
-                                            .addComponent(jLabel54))
+                                            .addComponent(labelEditR))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditReceptionistLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboBox21, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         panelEditReceptionistLayout.setVerticalGroup(
             panelEditReceptionistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1675,7 +1792,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelEditReceptionistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel52)
-                    .addComponent(jLabel54))
+                    .addComponent(labelEditR))
                 .addGap(18, 18, 18)
                 .addGroup(panelEditReceptionistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
@@ -1683,7 +1800,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(panelEditReceptionistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(showEdit))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
 
@@ -1928,10 +2046,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel83.setText("Tanggal Peminjaman");
 
-        jLabel84.setText("Batas Tanggal Pengembalian");
-
-        jLabel85.setText("Total Pembayaran");
-
         buttonTambahPeminjamanCancel.setText("Cancel");
         buttonTambahPeminjamanCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1940,6 +2054,35 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton7.setText("Add");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jComboBox14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox14MouseClicked(evt);
+            }
+        });
+
+        jComboBox15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox15MouseClicked(evt);
+            }
+        });
+
+        jLabel61.setText("Lama Peminjaman");
+
+        labelNamaTambah.setText("....");
+
+        jLabel24.setText("pegawai");
+
+        comptambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comptambahMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTambahPeminjamanLayout = new javax.swing.GroupLayout(panelTambahPeminjaman);
         panelTambahPeminjaman.setLayout(panelTambahPeminjamanLayout);
@@ -1952,66 +2095,72 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTambahPeminjamanLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
-                        .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel80)
-                            .addComponent(jLabel81)
-                            .addComponent(jLabel82))
-                        .addGap(68, 68, 68)
-                        .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
-                        .addComponent(jLabel84)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
-                        .addComponent(jLabel85)
-                        .addGap(62, 62, 62)
-                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
-                        .addComponent(jLabel83)
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(269, 269, 269))
+                    .addComponent(jLabel80)
+                    .addComponent(jLabel81)
+                    .addComponent(jLabel82))
+                .addGap(68, 68, 68)
+                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox15, 0, 145, Short.MAX_VALUE)
+                    .addComponent(jComboBox14, 0, 145, Short.MAX_VALUE)
+                    .addComponent(labelNamaTambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(273, 273, 273))
             .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(buttonTambahPeminjamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(buttonTambahPeminjamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel61)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTambahPeminjamanLayout.createSequentialGroup()
+                                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTambahPeminjamanLayout.createSequentialGroup()
+                                        .addComponent(jLabel83)
+                                        .addGap(49, 49, 49))
+                                    .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(62, 62, 62)))
+                                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField21, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                    .addComponent(comptambah, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTambahPeminjamanLayout.setVerticalGroup(
             panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTambahPeminjamanLayout.createSequentialGroup()
                 .addComponent(jLabel78)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel80))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel81)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel81)
+                    .addComponent(labelNamaTambah))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82)
                     .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(comptambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel61)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
                 .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel85))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelTambahPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonTambahPeminjamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         panelEditPeminjaman.setPreferredSize(new java.awt.Dimension(505, 370));
@@ -2027,10 +2176,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel91.setText("Tanggal Peminjaman");
 
-        jLabel92.setText("Batas Tanggal Pengembalian");
-
-        jLabel93.setText("Total Pembayaran");
-
         buttonEditPemnijamanCancel.setText("Cancel");
         buttonEditPemnijamanCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2039,10 +2184,42 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton9.setText("Edit");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
+        jComboBox16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox16MouseClicked(evt);
+            }
+        });
+
+        jComboBox17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox17MouseClicked(evt);
+            }
+        });
         jComboBox17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox17ActionPerformed(evt);
+            }
+        });
+
+        jLabel54.setText("pegawai");
+
+        comptambah1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comptambah1MouseClicked(evt);
+            }
+        });
+
+        jLabel92.setText("peminjaman");
+
+        jComboBox18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox18MouseClicked(evt);
             }
         });
 
@@ -2051,42 +2228,49 @@ public class GUI extends javax.swing.JFrame {
         panelEditPeminjamanLayout.setHorizontalGroup(
             panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
                 .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel92)
-                            .addComponent(jLabel93)
-                            .addComponent(buttonEditPemnijamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel92)
+                        .addGap(62, 62, 62)
+                        .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
                         .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(buttonEditPemnijamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(comptambah1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelEditPeminjamanLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox17, javax.swing.GroupLayout.Alignment.LEADING, 0, 145, Short.MAX_VALUE)
+                            .addComponent(jComboBox16, javax.swing.GroupLayout.Alignment.LEADING, 0, 145, Short.MAX_VALUE)))
+                    .addComponent(jLabel89)
+                    .addComponent(jLabel88)
+                    .addComponent(jLabel90)
                     .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel89)
-                            .addComponent(jLabel88)
-                            .addComponent(jLabel90)
-                            .addComponent(jLabel91))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addComponent(jLabel91)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditPeminjamanLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel86)
-                .addGap(186, 186, 186))
+                .addGap(180, 180, 180))
         );
         panelEditPeminjamanLayout.setVerticalGroup(
             panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEditPeminjamanLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel86)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel92)
+                    .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel88)
                     .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2096,19 +2280,15 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel90)
                     .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addGap(8, 8, 8)
+                .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54)
+                    .addComponent(comptambah1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel91)
                     .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel92, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addGroup(panelEditPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonEditPemnijamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2120,7 +2300,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel95.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel95.setText("Hapus Peminjaman");
 
-        jLabel97.setText("No.KTP");
+        jLabel97.setText("Id Transaksi");
 
         jLabel98.setText("Nama");
 
@@ -2128,9 +2308,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel100.setText("Tanggal Peminjaman");
 
-        jLabel101.setText("Batas Tanggal Pengembalian");
-
-        jLabel102.setText("Total Pembayaran");
+        jLabel101.setText("Lama Peminjaman");
 
         buttonHapusPeminjamanCancel.setText("Cancel");
         buttonHapusPeminjamanCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -2140,18 +2318,33 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton11.setText("Hapus");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
-        jLabel103.setText("....");
+        hapusnama.setText("...");
 
-        jLabel104.setText("...");
+        hapusjenis.setText("...");
 
-        jLabel105.setText("...");
-
-        jLabel106.setText("...");
+        hapustanggal.setText("...");
 
         jLabel107.setText("...");
 
-        jLabel108.setText("...");
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox3MouseClicked(evt);
+            }
+        });
+
+        jButton17.setText("show");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHapusPeminjamanLayout = new javax.swing.GroupLayout(panelHapusPeminjaman);
         panelHapusPeminjaman.setLayout(panelHapusPeminjamanLayout);
@@ -2161,32 +2354,30 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
-                        .addComponent(jLabel101)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel107))
-                    .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
-                        .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel98)
-                            .addComponent(jLabel102)
-                            .addComponent(jLabel97)
-                            .addComponent(jLabel99)
-                            .addComponent(jLabel100))
-                        .addGap(45, 45, 45)
-                        .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel103)
-                            .addComponent(jLabel104)
-                            .addComponent(jLabel105)
-                            .addComponent(jLabel106)
-                            .addComponent(jLabel108)))
-                    .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(jLabel95))
                     .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(30, 30, 30)
                         .addComponent(buttonHapusPeminjamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
+                        .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel98)
+                            .addComponent(jLabel97)
+                            .addComponent(jLabel99)
+                            .addComponent(jLabel100)
+                            .addComponent(jLabel101))
+                        .addGap(45, 45, 45)
+                        .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel107)
+                            .addComponent(hapusnama)
+                            .addComponent(hapusjenis)
+                            .addComponent(hapustanggal)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         panelHapusPeminjamanLayout.setVerticalGroup(
             panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2205,26 +2396,23 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel101, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel107))
-                        .addGap(8, 8, 8)
-                        .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel102)
-                            .addComponent(jLabel108))
-                        .addGap(27, 27, 27)
+                        .addGap(49, 49, 49)
                         .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonHapusPeminjamanCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(32, Short.MAX_VALUE))
                     .addGroup(panelHapusPeminjamanLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel103)
+                        .addGap(36, 36, 36)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hapusnama)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel104)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel105)
+                        .addComponent(hapusjenis)
                         .addGap(11, 11, 11)
                         .addGroup(panelHapusPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel100)
-                            .addComponent(jLabel106))
+                            .addComponent(hapustanggal))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -2474,11 +2662,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel121.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel121.setText("Pengembalian");
 
-        jLabel122.setText("ID_Pengembalian");
-
         jLabel123.setText("Tanggal Kembali");
 
-        jLabel125.setText("ID_Kendaraan");
+        jLabel125.setText("Id Transaksi");
 
         buttonCancelPengembalian.setText("Cancel");
         buttonCancelPengembalian.addActionListener(new java.awt.event.ActionListener() {
@@ -2488,18 +2674,20 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonAddPengembalian.setText("Add");
-
-        comboBoxIDKendaraanPengembalian.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddPengembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxIDKendaraanPengembalianActionPerformed(evt);
+                buttonAddPengembalianActionPerformed(evt);
             }
         });
 
-        jLabel127.setText("No KTP");
-
-        comboBoxNOKTPPengembalian.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxIDKendaraanPengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboBoxIDKendaraanPengembalianMouseClicked(evt);
+            }
+        });
+        comboBoxIDKendaraanPengembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxNOKTPPengembalianActionPerformed(evt);
+                comboBoxIDKendaraanPengembalianActionPerformed(evt);
             }
         });
 
@@ -2507,61 +2695,48 @@ public class GUI extends javax.swing.JFrame {
         panelPengembalian.setLayout(panelPengembalianLayout);
         panelPengembalianLayout.setHorizontalGroup(
             panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPengembalianLayout.createSequentialGroup()
-                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPengembalianLayout.createSequentialGroup()
+            .addGroup(panelPengembalianLayout.createSequentialGroup()
+                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPengembalianLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPengembalianLayout.createSequentialGroup()
-                                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel123)
-                                    .addComponent(jLabel125)
-                                    .addComponent(jLabel122)
-                                    .addComponent(jLabel127))
-                                .addGap(72, 72, 72)
-                                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboBoxIDKendaraanPengembalian, 0, 145, Short.MAX_VALUE)
-                                    .addComponent(textFieldIDPengembalian)
-                                    .addComponent(textFieldTglKembaliPengembalian, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(comboBoxNOKTPPengembalian, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(panelPengembalianLayout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(buttonCancelPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(buttonAddPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPengembalianLayout.createSequentialGroup()
+                            .addComponent(jLabel123)
+                            .addComponent(jLabel125))
+                        .addGap(78, 78, 78)
+                        .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboBoxIDKendaraanPengembalian, 0, 145, Short.MAX_VALUE)
+                            .addComponent(textFieldTglKembaliPengembalian, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(panelPengembalianLayout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(jLabel121)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel121))
+                    .addGroup(panelPengembalianLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(buttonCancelPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(buttonAddPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         panelPengembalianLayout.setVerticalGroup(
             panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPengembalianLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel121)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPengembalianLayout.createSequentialGroup()
-                        .addComponent(jLabel122)
-                        .addGap(13, 13, 13)
+                        .addGap(38, 38, 38)
                         .addComponent(jLabel123)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel125)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel127))
+                        .addComponent(jLabel125))
                     .addGroup(panelPengembalianLayout.createSequentialGroup()
-                        .addComponent(textFieldIDPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(37, 37, 37)
                         .addComponent(textFieldTglKembaliPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxIDKendaraanPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxNOKTPPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonCancelPengembalian, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(buttonAddPengembalian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(42, 42, 42))
+                        .addComponent(comboBoxIDKendaraanPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addGroup(panelPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCancelPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAddPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         panelLaporanKomentar.setFocusCycleRoot(true);
@@ -2672,6 +2847,186 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonBackLaporanSewa1)
                 .addContainerGap())
+        );
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setText("Tambah Pegawai");
+
+        jLabel27.setText("Nama        :");
+
+        jButton13.setText("Cancel");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("Add");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelInsertPegawaiLayout = new javax.swing.GroupLayout(panelInsertPegawai);
+        panelInsertPegawai.setLayout(panelInsertPegawaiLayout);
+        panelInsertPegawaiLayout.setHorizontalGroup(
+            panelInsertPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInsertPegawaiLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addGap(128, 128, 128))
+            .addGroup(panelInsertPegawaiLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel27)
+                .addGap(18, 18, 18)
+                .addComponent(textTambahP, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(panelInsertPegawaiLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jButton13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton14)
+                .addGap(66, 66, 66))
+        );
+        panelInsertPegawaiLayout.setVerticalGroup(
+            panelInsertPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInsertPegawaiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addGap(18, 18, 18)
+                .addGroup(panelInsertPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(textTambahP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(panelInsertPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel28.setText("Hapus Receptionist");
+
+        jLabel29.setText("Id");
+
+        jLabel49.setText("Nama");
+
+        jLabel60.setText("...");
+
+        jButton6.setText("Hapus");
+
+        jButton10.setText("Cancel");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelHapusPegawaiLayout = new javax.swing.GroupLayout(panelHapusPegawai);
+        panelHapusPegawai.setLayout(panelHapusPegawaiLayout);
+        panelHapusPegawaiLayout.setHorizontalGroup(
+            panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel28))
+                    .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel49)
+                            .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                                        .addGap(268, 268, 268)
+                                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                                        .addGap(76, 76, 76)
+                                        .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHapusPegawaiLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(182, 182, 182))
+        );
+        panelHapusPegawaiLayout.setVerticalGroup(
+            panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHapusPegawaiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel60))
+                .addGap(45, 45, 45)
+                .addGroup(panelHapusPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton10))
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
+
+        tabelPeng.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelPeng);
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Laporan Pengembalian");
+
+        jButton16.setText("Cancel");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLaporanPengembalianLayout = new javax.swing.GroupLayout(panelLaporanPengembalian);
+        panelLaporanPengembalian.setLayout(panelLaporanPengembalianLayout);
+        panelLaporanPengembalianLayout.setHorizontalGroup(
+            panelLaporanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLaporanPengembalianLayout.createSequentialGroup()
+                .addGroup(panelLaporanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLaporanPengembalianLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLaporanPengembalianLayout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(jLabel30))
+                    .addGroup(panelLaporanPengembalianLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jButton16)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLaporanPengembalianLayout.setVerticalGroup(
+            panelLaporanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLaporanPengembalianLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton16)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2817,13 +3172,28 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(panelLaporanSewa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(395, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelInsertPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelHapusPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelLaporanPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(panelEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(510, Short.MAX_VALUE))
+                .addContainerGap(511, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2959,6 +3329,21 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(panelLaporanSewa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(545, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelInsertPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelHapusPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panelLaporanPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         panelEditKendaraan.getAccessibleContext().setAccessibleDescription("");
@@ -2974,16 +3359,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_radioManagerJKendaraanActionPerformed
 
     private void buttonManagerUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManagerUpdateActionPerformed
-        if(managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())){
+        if (managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelEditJKendaraan.setVisible(true);
-        }
-        else if(managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())){
+        } else if (managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelEditKendaraan.setVisible(true);
-        }
-        else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_buttonManagerUpdateActionPerformed
 
@@ -2992,18 +3375,16 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_radioReceptionistPenyewaanActionPerformed
 
     private void buttonReceptionistUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReceptionistUpdateActionPerformed
-        accessPrivilage=1;
-        if(receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())){
+        accessPrivilage = 1;
+        if (receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())) {
             panelReceptionist.setVisible(false);
             panelEditPeminjaman.setVisible(true);
-        }
-        else if(receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())){
+        } else if (receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())) {
             panelReceptionist.setVisible(false);
             panelEditPenyewa.setVisible(true);
-                    
-        }
-        else{
-            
+
+        } else {
+
         }
     }//GEN-LAST:event_buttonReceptionistUpdateActionPerformed
 
@@ -3011,13 +3392,13 @@ public class GUI extends javax.swing.JFrame {
         panelLaporan.setVisible(false);
         panelLaporanKendaraan.setVisible(true);
         tabelKendaraan.setModel(control.tabelKendaraan());
-        
+
     }//GEN-LAST:event_buttonLaporanDataKendaraanActionPerformed
 
     private void homeLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeLoginButtonActionPerformed
         panelHome.setVisible(false);
         panelEmployee.setVisible(true);
-        
+
     }//GEN-LAST:event_homeLoginButtonActionPerformed
 
     private void employeeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeCancelButtonActionPerformed
@@ -3026,15 +3407,34 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_employeeCancelButtonActionPerformed
 
     private void employeeLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeLoginButtonActionPerformed
-        
-        if(fieldID.getText().equals("manager") && Arrays.equals(fieldPassword.getPassword(),managerchar)){
-            panelEmployee.setVisible(false);
-            panelManager.setVisible(true);
-            buttonManagerEdit.setVisible(false);
+        int manager = 0;
+        if (manager < this.control.getNamaManager().size()) {
+            int index = 0;
+            String m = fieldID.getText();
+            while (index < this.control.getNamaManager().size()) {
+                if (m.equals(this.control.getNamaManager().get(index)) && Arrays.equals(fieldPassword.getPassword(), managerchar)) {
+                    panelEmployee.setVisible(false);
+                    panelManager.setVisible(true);
+                    buttonManagerEdit.setVisible(false);
+                }
+                index++;
+                manager++;
+            }
+            manager++;
         }
-        else if(fieldID.getText().equals("receptionist") && Arrays.equals(fieldPassword.getPassword(),employeechar)){
-            panelEmployee.setVisible(false);
-            panelReceptionist.setVisible(true);
+        manager = 0;
+
+        if (manager < this.control.getNamaPegawe().size()) {
+            int index = 0;
+            while (manager < this.control.getNamaPegawe().size()) {
+                String p = fieldID.getText();
+                if (p.equals(this.control.getNamaPegawe().get(index)) && Arrays.equals(fieldPassword.getPassword(), employeechar)) {
+                    panelEmployee.setVisible(false);
+                    panelReceptionist.setVisible(true);
+                }
+                index++;
+                manager++;
+            }
         }
     }//GEN-LAST:event_employeeLoginButtonActionPerformed
 
@@ -3045,49 +3445,47 @@ public class GUI extends javax.swing.JFrame {
 
     private void radioManagerReceptionistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioManagerReceptionistActionPerformed
         buttonManagerEdit.setVisible(true);
-        buttonManagerDelete.setVisible(false);
-        buttonManagerInsert.setVisible(false);
+        buttonManagerDelete.setVisible(true);
+        buttonManagerInsert.setVisible(true);
         buttonManagerUpdate.setVisible(false);
     }//GEN-LAST:event_radioManagerReceptionistActionPerformed
 
     private void radioManagerKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioManagerKendaraanActionPerformed
-       buttonManagerEdit.setVisible(false);
-       buttonManagerDelete.setVisible(true);
-       buttonManagerInsert.setVisible(true);
-       buttonManagerUpdate.setVisible(true);
+        buttonManagerEdit.setVisible(false);
+        buttonManagerDelete.setVisible(true);
+        buttonManagerInsert.setVisible(true);
+        buttonManagerUpdate.setVisible(true);
     }//GEN-LAST:event_radioManagerKendaraanActionPerformed
 
     private void buttonManagerLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManagerLogOutActionPerformed
         panelManager.setVisible(false);
         panelHome.setVisible(true);
-        
+
     }//GEN-LAST:event_buttonManagerLogOutActionPerformed
 
     private void buttonManagerInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManagerInsertActionPerformed
-        if(managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())){
+        if (managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelTambahJKendaraan.setVisible(true);
-        }
-        else if(managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())){
+        } else if (managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelTambahKendaraan.setVisible(true);
-        }
-        else{
-            
+        } else if (managerRadioButtonGroup.isSelected(radioManagerReceptionist.getModel())) {
+            panelManager.setVisible(false);
+            panelInsertPegawai.setVisible(true);
         }
     }//GEN-LAST:event_buttonManagerInsertActionPerformed
 
     private void buttonManagerDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManagerDeleteActionPerformed
-        if(managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())){
+        if (managerRadioButtonGroup.isSelected(radioManagerJKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelHapusJKendaraan.setVisible(true);
-        }
-        else if(managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())){
+        } else if (managerRadioButtonGroup.isSelected(radioManagerKendaraan.getModel())) {
             panelManager.setVisible(false);
             panelHapusKendaraan.setVisible(true);
-        }
-        else{
-            
+        } else if (managerRadioButtonGroup.isSelected(radioManagerReceptionist.getModel())) {
+            panelManager.setVisible(false);
+            panelHapusPegawai.setVisible(true);
         }
     }//GEN-LAST:event_buttonManagerDeleteActionPerformed
 
@@ -3096,7 +3494,7 @@ public class GUI extends javax.swing.JFrame {
         panelLaporan.setVisible(true);
         buttonLaporanDataKendaraan.setVisible(true);
         buttonLaporanDataPegawai.setVisible(true);
-        accessPrivilage=2;
+        accessPrivilage = 2;
     }//GEN-LAST:event_buttonManagerLaporanActionPerformed
 
     private void buttonReceptionistLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReceptionistLaporanActionPerformed
@@ -3104,21 +3502,19 @@ public class GUI extends javax.swing.JFrame {
         panelLaporan.setVisible(true);
         buttonLaporanDataKendaraan.setVisible(false);
         buttonLaporanDataPegawai.setVisible(false);
-        accessPrivilage=1;
+        accessPrivilage = 1;
     }//GEN-LAST:event_buttonReceptionistLaporanActionPerformed
 
     private void buttonReceptionistInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReceptionistInsertActionPerformed
-        accessPrivilage=1;
-        if(receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())){
+        accessPrivilage = 1;
+        if (receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())) {
             panelReceptionist.setVisible(false);
             panelTambahPeminjaman.setVisible(true);
-        }
-        else if(receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())){
+        } else if (receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())) {
             panelReceptionist.setVisible(false);
             panelTambahPenyewa.setVisible(true);
-        }
-        else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_buttonReceptionistInsertActionPerformed
 
@@ -3147,7 +3543,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonReceptionistLogOutActionPerformed
 
     private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_jComboBox13ActionPerformed
 
     private void buttonHapusKendaraanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusKendaraanCancelActionPerformed
@@ -3156,24 +3553,18 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonHapusKendaraanCancelActionPerformed
 
     private void buttonHapusKendaraanDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusKendaraanDeleteActionPerformed
-        if(jComboBox13.getSelectedItem().toString().equals("trukhino")){
-        }
+        int i = this.jComboBox13.getSelectedIndex();
+        this.control.deleteKendaraan(this.control.kendaraan.get(i).getId());
     }//GEN-LAST:event_buttonHapusKendaraanDeleteActionPerformed
-
-    private void buttonTambahKendaraanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanCancelActionPerformed
-        panelTambahKendaraan.setVisible(false);
-        panelManager.setVisible(true);
-
-    }//GEN-LAST:event_buttonTambahKendaraanCancelActionPerformed
 
     private void buttonEditKendaraanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditKendaraanCancelActionPerformed
         panelEditKendaraan.setVisible(false);
         panelManager.setVisible(true);
     }//GEN-LAST:event_buttonEditKendaraanCancelActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void editKapasitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editKapasitasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_editKapasitasActionPerformed
 
     private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
         // TODO add your handling code here:
@@ -3209,20 +3600,18 @@ public class GUI extends javax.swing.JFrame {
 
     private void buttonTambahPenyewaCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenyewaCancelActionPerformed
         panelTambahPenyewa.setVisible(false);
-        if(accessPrivilage==1){
+        if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelHome.setVisible(true);
         }
     }//GEN-LAST:event_buttonTambahPenyewaCancelActionPerformed
 
     private void buttonEditPenyewaCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditPenyewaCancelActionPerformed
         panelEditPenyewa.setVisible(false);
-        if(accessPrivilage==1){
+        if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelHome.setVisible(true);
         }
     }//GEN-LAST:event_buttonEditPenyewaCancelActionPerformed
@@ -3234,35 +3623,31 @@ public class GUI extends javax.swing.JFrame {
 
     private void buttonEditPemnijamanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditPemnijamanCancelActionPerformed
         panelEditPeminjaman.setVisible(false);
-        if(accessPrivilage==1){
+        if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelPenyewaan.setVisible(true);
         }
     }//GEN-LAST:event_buttonEditPemnijamanCancelActionPerformed
 
     private void buttonHapusPeminjamanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPeminjamanCancelActionPerformed
         panelHapusPeminjaman.setVisible(false);
-        if(accessPrivilage==1){
+        if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelPenyewaan.setVisible(true);
         }
     }//GEN-LAST:event_buttonHapusPeminjamanCancelActionPerformed
 
     private void buttonReceptionistDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReceptionistDeleteActionPerformed
-        if(receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())){
+        if (receptionistRadioButtonGroup.isSelected(radioReceptionistPeminjamanKendaraan.getModel())) {
             panelReceptionist.setVisible(false);
             panelHapusPeminjaman.setVisible(true);
-        }
-        else if(receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())){
+        } else if (receptionistRadioButtonGroup.isSelected(radioReceptionistPenyewaan.getModel())) {
             panelReceptionist.setVisible(false);
             panelHapusPenyewa.setVisible(true);
-        }
-        else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_buttonReceptionistDeleteActionPerformed
 
@@ -3271,8 +3656,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldPasswordActionPerformed
 
     private void buttonBackLaporanPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanPegawaiActionPerformed
-       panelLaporanPegawai.setVisible(false);
-       panelLaporan.setVisible(true);
+        panelLaporanPegawai.setVisible(false);
+        panelLaporan.setVisible(true);
     }//GEN-LAST:event_buttonBackLaporanPegawaiActionPerformed
 
     private void buttonBackLaporanSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanSewaActionPerformed
@@ -3282,13 +3667,11 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         panelLaporan.setVisible(false);
-        if(accessPrivilage==2){
+        if (accessPrivilage == 2) {
             panelManager.setVisible(true);
-        }
-        else if(accessPrivilage==1){
+        } else if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelHome.setVisible(true);
         }
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -3311,19 +3694,19 @@ public class GUI extends javax.swing.JFrame {
     private void buttonPenyewaanTambahSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenyewaanTambahSewaActionPerformed
         panelPenyewaan.setVisible(false);
         panelTambahPeminjaman.setVisible(true);
-        accessPrivilage=0;
+        accessPrivilage = 0;
     }//GEN-LAST:event_buttonPenyewaanTambahSewaActionPerformed
 
     private void buttonPenyewaanEditSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenyewaanEditSewaActionPerformed
         panelPenyewaan.setVisible(false);
         panelEditPeminjaman.setVisible(true);
-        accessPrivilage=0;
+        accessPrivilage = 0;
     }//GEN-LAST:event_buttonPenyewaanEditSewaActionPerformed
 
     private void buttonPenyewaanHapusSewaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenyewaanHapusSewaActionPerformed
         panelPenyewaan.setVisible(false);
         panelHapusPeminjaman.setVisible(true);
-        accessPrivilage=0;
+        accessPrivilage = 0;
     }//GEN-LAST:event_buttonPenyewaanHapusSewaActionPerformed
 
     private void buttonPenyewaanBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenyewaanBackActionPerformed
@@ -3340,10 +3723,6 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxIDKendaraanPengembalianActionPerformed
 
-    private void comboBoxNOKTPPengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxNOKTPPengembalianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxNOKTPPengembalianActionPerformed
-
     private void buttonLaporanSewaKendaraanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanSewaKendaraanActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanSewa.setVisible(true);
@@ -3359,7 +3738,7 @@ public class GUI extends javax.swing.JFrame {
     private void buttonLaporanKomentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanKomentarActionPerformed
         panelLaporan.setVisible(false);
         panelLaporanKomentar.setVisible(true);
-        tabelKomentar.setModel( control.tabelKomentar());
+        tabelKomentar.setModel(control.tabelKomentar());
     }//GEN-LAST:event_buttonLaporanKomentarActionPerformed
 
     private void buttonBackLaporanKendaraan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackLaporanKendaraan3ActionPerformed
@@ -3373,16 +3752,15 @@ public class GUI extends javax.swing.JFrame {
 
     private void buttonTambahPeminjamanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPeminjamanCancelActionPerformed
         panelTambahPeminjaman.setVisible(false);
-        if(accessPrivilage==1){
+        if (accessPrivilage == 1) {
             panelReceptionist.setVisible(true);
-        }
-        else{
+        } else {
             panelPenyewaan.setVisible(true);
         }
     }//GEN-LAST:event_buttonTambahPeminjamanCancelActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        if(receptionistRadioButtonGroup.isSelected(jRadioButton1.getModel())){
+        if (receptionistRadioButtonGroup.isSelected(jRadioButton1.getModel())) {
             panelReceptionist.setVisible(false);
             panelPengembalian.setVisible(true);
         }
@@ -3394,30 +3772,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void buttonTambahPenyewaAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenyewaAddActionPerformed
         // TODO add your handling code here:
-        this.control.insertPenyewa(textKTP.getText(),textNama.getText(), textAlamat.getText(), "?");
+        this.control.insertPenyewa("?", textNama.getText(), textAlamat.getText(), textKTP.getText());
     }//GEN-LAST:event_buttonTambahPenyewaAddActionPerformed
-
-    private void buttonTambahKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanAddActionPerformed
-        // TODO add your handling code here:
-        String jenis="";
-        if(comboJ.getSelectedItem().equals("sedan")){
-            jenis="00";
-        }else if(comboJ.getSelectedItem().equals("pickup")){
-            jenis="01";
-        }
-        else if(comboJ.getSelectedItem().equals("limosin")){
-            jenis="03";
-        }
-        else if(comboJ.getSelectedItem().equals("truck")){
-            jenis="02";
-        }
-        else if(comboJ.getSelectedItem().equals("minivan")){
-            jenis="04";
-        }
-        
-        int kapas=Integer.getInteger(textKapasitas.getText());
-        this.control.insertKendaraan(textID.getText(),textNoPol.getText(),kapas,Integer.getInteger(TextHarga.getText()),jenis);
-    }//GEN-LAST:event_buttonTambahKendaraanAddActionPerformed
 
     private void buttonTambahKomentarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAddActionPerformed
         this.control.insertKomentar(this.textKTPinsert.getText(), this.textdescinsert.getText());
@@ -3439,13 +3795,8 @@ public class GUI extends javax.swing.JFrame {
         tabelSewa1.setModel(control.tabelKeuangan());
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void comboJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJActionPerformed
-        
-    }//GEN-LAST:event_comboJActionPerformed
-
     private void buttonJKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJKendaraanAddActionPerformed
-        int banyak=-this.control.hashCode();
-        
+        this.control.insertJenisKendaraan(fieldTambahJ.getText(), Integer.parseInt(jTextField4.getText()), Integer.parseInt(jenisHarga.getText()));
     }//GEN-LAST:event_buttonJKendaraanAddActionPerformed
 
     private void textktpdelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textktpdelActionPerformed
@@ -3463,6 +3814,270 @@ public class GUI extends javax.swing.JFrame {
     private void buttonTambahKomentarAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKomentarAdd2ActionPerformed
         this.control.insertKomentar(this.textKTPedit.getText(), this.textdescedit.getText());
     }//GEN-LAST:event_buttonTambahKomentarAdd2ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        this.panelHapusPegawai.setVisible(false);
+        this.panelManager.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        this.panelInsertPegawai.setVisible(false);
+        this.panelManager.setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        panelLaporan.setVisible(false);
+        panelLaporanPengembalian.setVisible(true);
+        this.tabelPeng.setModel(this.control.tabelpeng());
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        panelLaporanPengembalian.setVisible(false);
+        panelLaporan.setVisible(true);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        this.control.insertPegawai(textTambahP.getText());
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+
+    private void buttonHapusJDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusJDeleteActionPerformed
+        this.control.deleteJenisKendaraan(this.jComboBox2.getSelectedItem().toString());
+        this.jComboBox2.removeAllItems();
+    }//GEN-LAST:event_buttonHapusJDeleteActionPerformed
+
+    private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
+        this.jComboBox2.removeAllItems();
+        if (this.jComboBox2.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox2.addItem(this.control.jk.get(i).getNama());
+            }
+        }
+    }//GEN-LAST:event_jComboBox2MouseClicked
+
+    private void jComboBox13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox13MouseClicked
+        this.jComboBox13.removeAllItems();
+        if (this.jComboBox13.getItemCount() <= this.control.kendaraan.size()) {
+            for (int i = 0; i < this.control.kendaraan.size(); i++) {
+                this.jComboBox13.addItem(this.control.kendaraan.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox13MouseClicked
+
+    private void jComboBox13ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox13ItemStateChanged
+
+
+    }//GEN-LAST:event_jComboBox13ItemStateChanged
+
+    private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
+        int i = this.jComboBox13.getSelectedIndex();
+        this.labelHapusKendaraanJenis.setText(this.control.kendaraan.get(i).getjenisMerek());
+        this.labelHapusKendaraanNomorPolisi.setText(this.control.kendaraan.get(i).getNoPol());
+    }//GEN-LAST:event_showActionPerformed
+
+    private void buttonTambahKendaraanAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanAddActionPerformed
+        // TODO add your handling code here:
+        String jenis = "";
+        int i = this.jComboBox.getSelectedIndex();
+        jenis = jenis + this.control.jk.get(i).getId();
+        int kapas = Integer.getInteger(textKapasitas.getText());
+        this.control.insertKendaraan(textNoPol.getText(), this.control.jk.get(i).getharga(), kapas, jenis);
+    }//GEN-LAST:event_buttonTambahKendaraanAddActionPerformed
+
+    private void buttonTambahKendaraanCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahKendaraanCancelActionPerformed
+        panelTambahKendaraan.setVisible(false);
+        panelManager.setVisible(true);
+    }//GEN-LAST:event_buttonTambahKendaraanCancelActionPerformed
+
+    private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
+
+    }//GEN-LAST:event_jComboBoxActionPerformed
+
+    private void jComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxMouseClicked
+        this.jComboBox.removeAllItems();
+        if (this.jComboBox.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox.addItem(this.control.jk.get(i).getNama());
+            }
+        }
+    }//GEN-LAST:event_jComboBoxMouseClicked
+
+    private void jComboBox12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox12MouseClicked
+        this.jComboBox12.removeAllItems();
+        if (this.jComboBox12.getItemCount() <= this.control.kendaraan.size()) {
+            for (int i = 0; i < this.control.kendaraan.size(); i++) {
+                this.jComboBox12.addItem(this.control.kendaraan.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox12MouseClicked
+
+    private void jComboBox6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox6MouseClicked
+        this.jComboBox6.removeAllItems();
+        if (this.jComboBox6.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox6.addItem(this.control.jk.get(i).getNama());
+            }
+        }
+    }//GEN-LAST:event_jComboBox6MouseClicked
+
+    private void buttonEditKendaraanEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditKendaraanEditActionPerformed
+        String jenis = "";
+        int i = this.jComboBox6.getSelectedIndex();
+        jenis = jenis + this.control.jk.get(i).getId();
+        String ken = "";
+        int j = this.jComboBox12.getSelectedIndex();
+        jenis = jenis + this.control.kendaraan.get(j).getId();
+        int kapas = Integer.getInteger(textKapasitas.getText());
+        this.control.insertKendaraan(editnoPol.getText(), this.control.jk.get(j).getharga(), kapas, Integer.toString(this.control.jk.get(i).getId()));
+    }//GEN-LAST:event_buttonEditKendaraanEditActionPerformed
+
+    private void jComboBox9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox9MouseClicked
+        this.jComboBox9.removeAllItems();
+        if (this.jComboBox9.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.pegawe.size(); i++) {
+                this.jComboBox9.addItem(this.control.pegawe.get(i).getID());
+            }
+        }
+    }//GEN-LAST:event_jComboBox9MouseClicked
+
+    private void showEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showEditActionPerformed
+        int i = this.jComboBox9.getSelectedIndex();
+        labelEditR.setText(this.control.pegawe.get(i).getNama());
+    }//GEN-LAST:event_showEditActionPerformed
+
+    private void jComboBox14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox14MouseClicked
+        this.jComboBox14.removeAllItems();
+        if (this.jComboBox14.getItemCount() <= this.control.pesewa.size()) {
+            for (int i = 0; i < this.control.pesewa.size(); i++) {
+                this.jComboBox14.addItem(this.control.pesewa.get(i).getNoKTP());
+            }
+        }
+    }//GEN-LAST:event_jComboBox14MouseClicked
+
+    private void jComboBox15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox15MouseClicked
+        int j = this.jComboBox14.getSelectedIndex();
+        labelNamaTambah.setText(this.control.pesewa.get(j).getNama());
+        this.jComboBox15.removeAllItems();
+        if (this.jComboBox15.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox15.addItem(this.control.jk.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox15MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int j = this.jComboBox14.getSelectedIndex();
+        int i = this.jComboBox15.getSelectedIndex();
+        int k= this.comptambah.getSelectedIndex();
+        this.control.insertRental(this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(),this.control.pegawe.get(k));
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void comptambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comptambahMouseClicked
+        comptambah.removeAllItems();
+        if (this.comptambah.getItemCount() <= this.control.pegawe.size()) {
+            for (int i = 0; i < this.control.pegawe.size(); i++) {
+                this.comptambah.addItem(this.control.pegawe.get(i).getID());
+            }
+        }
+    }//GEN-LAST:event_comptambahMouseClicked
+
+    private void buttonEditJAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditJAddActionPerformed
+        this.control.editJenisKendaraan(this.control.kendaraan.get(this.jComboBox1.getSelectedIndex()).getId(),this.namajenisedit.getText(),Integer.parseInt(this.kapasitasedit.getText()), Integer.parseInt(this.hargasewaedit.getText()));
+    }//GEN-LAST:event_buttonEditJAddActionPerformed
+
+    private void namajeniseditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namajeniseditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namajeniseditActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+     int j = this.jComboBox16.getSelectedIndex();
+        int i = this.jComboBox17.getSelectedIndex();
+        int k= this.comptambah1.getSelectedIndex();
+        int l=this.jComboBox18.getSelectedIndex();
+        this.control.editRental(this.control.rental.get(l).getId(),this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(),this.control.pegawe.get(k));
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jComboBox16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox16MouseClicked
+        this.jComboBox16.removeAllItems();
+        if (this.jComboBox16.getItemCount() <= this.control.pesewa.size()) {
+            for (int i = 0; i < this.control.pesewa.size(); i++) {
+                this.jComboBox16.addItem(this.control.pesewa.get(i).getNoKTP());
+            }
+        }
+    }//GEN-LAST:event_jComboBox16MouseClicked
+
+    private void jComboBox17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox17MouseClicked
+        int j = this.jComboBox16.getSelectedIndex();
+        labelNamaTambah.setText(this.control.pesewa.get(j).getNama());
+        this.jComboBox16.removeAllItems();
+        if (this.jComboBox16.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox16.addItem(this.control.jk.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox17MouseClicked
+
+    private void comptambah1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comptambah1MouseClicked
+        comptambah1.removeAllItems();
+        if (this.comptambah1.getItemCount() <= this.control.pegawe.size()) {
+            for (int i = 0; i < this.control.pegawe.size(); i++) {
+                this.comptambah1.addItem(this.control.pegawe.get(i).getID());
+            }
+        }
+    }//GEN-LAST:event_comptambah1MouseClicked
+
+    private void jComboBox18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox18MouseClicked
+        this.jComboBox18.removeAllItems();
+        if (this.jComboBox18.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.rental.size(); i++) {
+                this.jComboBox18.addItem(this.control.rental.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox18MouseClicked
+
+    private void jComboBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox3MouseClicked
+        this.jComboBox3.removeAllItems();
+        if (this.jComboBox3.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.rental.size(); i++) {
+                this.jComboBox3.addItem(this.control.rental.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_jComboBox3MouseClicked
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        int j = this.jComboBox3.getSelectedIndex();
+        hapusnama.setText(this.control.rental.get(j).getNamaPenyewa());
+        hapusjenis.setText(this.control.rental.get(j).getJenisKendaraan());
+        hapustanggal.setText(this.control.rental.get(j).getTanggal());
+        this.control.deletepeminjaman(j);
+        
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void comboBoxIDKendaraanPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboBoxIDKendaraanPengembalianMouseClicked
+        this.comboBoxIDKendaraanPengembalian.removeAllItems();
+        if (this.comboBoxIDKendaraanPengembalian.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.rental.size(); i++) {
+                this.comboBoxIDKendaraanPengembalian.addItem(this.control.rental.get(i).getId());
+            }
+        }
+    }//GEN-LAST:event_comboBoxIDKendaraanPengembalianMouseClicked
+
+    private void buttonAddPengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddPengembalianActionPerformed
+       int i=this.comboBoxIDKendaraanPengembalian.getSelectedIndex();
+       this.control.insertpengembalian(this.control.rental.get(i).getId(), textFieldTglKembaliPengembalian.getText());
+    }//GEN-LAST:event_buttonAddPengembalianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3506,7 +4121,6 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TextHarga;
     private javax.swing.JButton buttonAddPengembalian;
     private javax.swing.JButton buttonBackLaporanKendaraan;
     private javax.swing.JButton buttonBackLaporanKendaraan3;
@@ -3562,24 +4176,38 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonTambahPenyewaAdd;
     private javax.swing.JButton buttonTambahPenyewaCancel;
     private javax.swing.JComboBox comboBoxIDKendaraanPengembalian;
-    private javax.swing.JComboBox comboBoxNOKTPPengembalian;
-    private javax.swing.JComboBox comboJ;
+    private javax.swing.JComboBox comptambah;
+    private javax.swing.JComboBox comptambah1;
+    private javax.swing.JTextField editKapasitas;
+    private javax.swing.JTextField editnoPol;
     private javax.swing.JButton employeeCancelButton;
     private javax.swing.JButton employeeLoginButton;
     private javax.swing.JTextField fieldID;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldTambahJ;
+    private javax.swing.JLabel hapusjenis;
+    private javax.swing.JLabel hapusnama;
+    private javax.swing.JLabel hapustanggal;
+    private javax.swing.JTextField hargasewaedit;
     private javax.swing.JButton homeLoginButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox jComboBox;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
@@ -3589,21 +4217,18 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox15;
     private javax.swing.JComboBox jComboBox16;
     private javax.swing.JComboBox jComboBox17;
+    private javax.swing.JComboBox jComboBox18;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox21;
+    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
-    private javax.swing.JLabel jLabel102;
-    private javax.swing.JLabel jLabel103;
-    private javax.swing.JLabel jLabel104;
-    private javax.swing.JLabel jLabel105;
-    private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
-    private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
@@ -3611,10 +4236,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel125;
-    private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
@@ -3627,12 +4250,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3648,9 +4276,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -3663,10 +4293,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -3680,8 +4313,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
@@ -3689,7 +4320,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
@@ -3698,27 +4328,26 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JLabel labelHapusKendaraanHargaSewa;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jenisHarga;
+    private javax.swing.JTextField kapasitasedit;
+    private javax.swing.JLabel labelEditR;
     private javax.swing.JLabel labelHapusKendaraanJenis;
     private javax.swing.JLabel labelHapusKendaraanNomorPolisi;
+    private javax.swing.JLabel labelNamaTambah;
     private javax.swing.ButtonGroup managerRadioButtonGroup;
+    private javax.swing.JTextField namajenisedit;
     private javax.swing.JPanel panelEditJKendaraan;
     private javax.swing.JPanel panelEditKendaraan;
     private javax.swing.JPanel panelEditKomentar;
@@ -3729,13 +4358,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelHapusJKendaraan;
     private javax.swing.JPanel panelHapusKendaraan;
     private javax.swing.JPanel panelHapusKomentar;
+    private javax.swing.JPanel panelHapusPegawai;
     private javax.swing.JPanel panelHapusPeminjaman;
     private javax.swing.JPanel panelHapusPenyewa;
     private javax.swing.JPanel panelHome;
+    private javax.swing.JPanel panelInsertPegawai;
     private javax.swing.JPanel panelLaporan;
     private javax.swing.JPanel panelLaporanKendaraan;
     private javax.swing.JPanel panelLaporanKomentar;
     private javax.swing.JPanel panelLaporanPegawai;
+    private javax.swing.JPanel panelLaporanPengembalian;
     private javax.swing.JPanel panelLaporanSewa;
     private javax.swing.JPanel panelLaporanSewa1;
     private javax.swing.JPanel panelManager;
@@ -3753,21 +4385,23 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioReceptionistPeminjamanKendaraan;
     private javax.swing.JRadioButton radioReceptionistPenyewaan;
     private javax.swing.ButtonGroup receptionistRadioButtonGroup;
+    private javax.swing.JButton show;
+    private javax.swing.JButton showEdit;
     private javax.swing.JTable tabelKendaraan;
     private javax.swing.JTable tabelKomentar;
     private javax.swing.JTable tabelPegawai;
+    private javax.swing.JTable tabelPeng;
     private javax.swing.JTable tabelSewa;
     private javax.swing.JTable tabelSewa1;
     private javax.swing.JTextField textAlamat;
-    private javax.swing.JTextField textFieldIDPengembalian;
     private javax.swing.JTextField textFieldTglKembaliPengembalian;
-    private javax.swing.JTextField textID;
     private javax.swing.JTextField textKTP;
     private javax.swing.JTextField textKTPedit;
     private javax.swing.JTextField textKTPinsert;
     private javax.swing.JTextField textKapasitas;
     private javax.swing.JTextField textNama;
     private javax.swing.JTextField textNoPol;
+    private javax.swing.JTextField textTambahP;
     private javax.swing.JTextArea textdescedit;
     private javax.swing.JTextArea textdescinsert;
     private javax.swing.JTextField textktpdel;
