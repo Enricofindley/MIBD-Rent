@@ -71,11 +71,7 @@ public class Controller {
         this.updateRentalSewa();
         this.updateJenisKendaraan();
         this.updatePengembalian();
-        idk = this.kendaraan.size() + 1;
-        idjk = this.jk.size() + 1;
-        idp = this.pegawe.size() + 1;
-        idr = this.rental.size() + 1;
-
+       
     }
 
     public void updatePengembalian() {
@@ -103,7 +99,7 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            String query = "select id_jenis,nama_jenis,kapasitas,biaya_sewa from jenis_kendaraan";
+            String query = "select jenis_kendaraan.id_jenis,nama_jenis,jenis_kendaraan.kapasitas,Kendaraan.biaya_sewa from jenis_kendaraan join Kendaraan on jenis_kendaraan.id_jenis=kendaraan.id_jenis";
             ResultSet rs = sta.executeQuery(query);
             while (rs.next()) {
                 String id = rs.getString("id_jenis");
@@ -250,7 +246,7 @@ public class Controller {
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement sta = conn.createStatement();
-            int banyak = this.idp;
+            int banyak = Integer.parseInt(this.pegawe.get(idk).getID());
             String id = "" + banyak;
             for (int i = id.length(); i < 8; i++) {
                 id = "0" + id;
@@ -386,7 +382,7 @@ public class Controller {
                 sta.execute(bquery);
             }
 
-            String jquery = "delete from Jenis_kendaraan where nama_jenis='" + jenisKendaraan + "'";
+            String jquery = "delete from Jenis_kendaraan where id_jenis='" + jenisKendaraan + "'";
             sta.execute(jquery);
             this.jk.remove(i);
             rs.close();
@@ -437,6 +433,44 @@ public class Controller {
             sta.execute(jquery);
             this.kendaraan.remove(i);
             rs.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void deletepeminjaman(int idK) {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+
+            String bquery = "delete from pengembalian  where ID_Kendaraan='" + this.rental.get(idK) + "'";
+            sta.execute(bquery);
+            bquery = "delete from rental where ID_Kendaraan='" + this.rental.get(idK) + "'";
+            sta.execute(bquery);
+            this.rental.remove(idK);
+            this.rent.remove(idK);
+
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void deletepesewa(int idK,String noktp) {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+
+            String bquery = "delete from pengembalian  where no_ktp'" + noktp + "'";
+            sta.execute(bquery);
+            bquery = "delete from rental where no_ktp='" + noktp + "'";
+            sta.execute(bquery);
+            this.pesewa.remove(idK);
+            this.rental.remove(idK);
+            this.rent.remove(idK);
             conn.close();
 
         } catch (SQLException e) {
@@ -509,27 +543,6 @@ public class Controller {
         }
     }
 
-    public void deletepeminjaman(int idK) {
-        try {
-            Connection conn = DriverManager.getConnection(url);
-            Statement sta = conn.createStatement();
-
-            String bquery = "delete from pengembalian where ID_transaksi='" + this.rental.get(idk).getId() + "'";
-            sta.execute(bquery);
-            bquery = "delete from  rental where ID_transaksi='" + this.rental.get(idk).getId() + "'";
-            sta.execute(bquery);
-
-            this.rental.remove(idK);
-            this.rental.remove(idk);
-            conn.close();
-
-        } catch (SQLException e) {
-            System.out.println(e.toString());
-        }
-    }
-    
-    
-
     public void insertpengembalian(String idtrans, String tanggal) {
         try {
             Connection conn = DriverManager.getConnection(url);
@@ -544,9 +557,35 @@ public class Controller {
 
             String query = "INSERT INTO [Pengembalian]  VALUES ('" + banyak + "','" + tanggal + "','" + " " + "','" + " " + "','" + " " + "')";
             sta.execute(query);
-            Pengembalian sewa = new Pengembalian(banyak, tanggal,idtrans);
-            
+            Pengembalian sewa = new Pengembalian(banyak, tanggal, idtrans);
+
             this.pengembalian.add(sewa);
+
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void insertRental(Penyewa noktp, Kendaraan idken, String tanggal, Pegawai idpeg) {
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement sta = conn.createStatement();
+            String banyak = this.rent.get(this.rent.size() - 1).getId();
+            int id = Integer.parseInt(banyak) + 1;
+            banyak = "" + id;
+
+            for (int i = banyak.length(); i < 2; i++) {
+                banyak = "0" + banyak;
+            }
+
+            String query = "INSERT INTO [rental]  VALUES ('" + banyak + "','" + tanggal + "','" + idken.getId() + "','" + noktp.getNoKTP() + "','" + idpeg.getID() + "')";
+            sta.execute(query);
+            Rental sewa = new Rental(banyak, idken.getHarga(), tanggal);
+            Rental sewo = new Rental(banyak, noktp, idken);
+            this.rental.add(sewo);
+            this.rent.add(sewa);
 
             conn.close();
 

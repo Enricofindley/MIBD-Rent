@@ -1555,6 +1555,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jComboBox1MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="namajenisedit">
           <Events>
@@ -2792,14 +2795,16 @@
                           <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jComboBox11" pref="184" max="32767" attributes="0"/>
-                              <Component id="jLabel74" max="32767" attributes="0"/>
-                              <Component id="jLabel75" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelnamaPenyewa" max="32767" attributes="0"/>
+                              <Component id="labelalamatpenyewa" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Component id="buttonHapusPenyewaCancel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jButton18" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="buttonHapusPenyewaHapus" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2820,17 +2825,18 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelnamaPenyewa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelalamatpenyewa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="buttonHapusPenyewaCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonHapusPenyewaHapus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="138" max="32767" attributes="0"/>
               </Group>
@@ -2873,6 +2879,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Hapus"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPenyewaHapusActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox11">
           <Properties>
@@ -2880,16 +2889,27 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jComboBox11MouseClicked"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel74">
+        <Component class="javax.swing.JLabel" name="labelnamaPenyewa">
           <Properties>
             <Property name="text" type="java.lang.String" value="...."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel75">
+        <Component class="javax.swing.JLabel" name="labelalamatpenyewa">
           <Properties>
             <Property name="text" type="java.lang.String" value="....."/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton18">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="show"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton18ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -280,8 +280,9 @@ public class GUI extends javax.swing.JFrame {
         buttonHapusPenyewaCancel = new javax.swing.JButton();
         buttonHapusPenyewaHapus = new javax.swing.JButton();
         jComboBox11 = new javax.swing.JComboBox();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
+        labelnamaPenyewa = new javax.swing.JLabel();
+        labelalamatpenyewa = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
         panelTambahPeminjaman = new javax.swing.JPanel();
         jLabel78 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
@@ -1100,6 +1101,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel14.setText("Edit Jenis Kendaraan");
 
         jLabel15.setText("Jenis Kendaraan                    :");
+
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
 
         namajenisedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1977,10 +1984,28 @@ public class GUI extends javax.swing.JFrame {
         });
 
         buttonHapusPenyewaHapus.setText("Hapus");
+        buttonHapusPenyewaHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusPenyewaHapusActionPerformed(evt);
+            }
+        });
 
-        jLabel74.setText("....");
+        jComboBox11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox11MouseClicked(evt);
+            }
+        });
 
-        jLabel75.setText(".....");
+        labelnamaPenyewa.setText("....");
+
+        labelalamatpenyewa.setText(".....");
+
+        jButton18.setText("show");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHapusPenyewaLayout = new javax.swing.GroupLayout(panelHapusPenyewa);
         panelHapusPenyewa.setLayout(panelHapusPenyewaLayout);
@@ -2000,12 +2025,14 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addGroup(panelHapusPenyewaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBox11, 0, 184, Short.MAX_VALUE)
-                            .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(labelnamaPenyewa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelalamatpenyewa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelHapusPenyewaLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(buttonHapusPenyewaCancel)
-                        .addGap(62, 62, 62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton18)
+                        .addGap(20, 20, 20)
                         .addComponent(buttonHapusPenyewaHapus)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
@@ -2021,15 +2048,16 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelHapusPenyewaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70)
-                    .addComponent(jLabel74))
+                    .addComponent(labelnamaPenyewa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelHapusPenyewaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel71)
-                    .addComponent(jLabel75))
+                    .addComponent(labelalamatpenyewa))
                 .addGap(18, 18, 18)
                 .addGroup(panelHapusPenyewaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonHapusPenyewaCancel)
-                    .addComponent(buttonHapusPenyewaHapus))
+                    .addComponent(buttonHapusPenyewaHapus)
+                    .addComponent(jButton18))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
 
@@ -3903,11 +3931,11 @@ public class GUI extends javax.swing.JFrame {
 
     private void jComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxMouseClicked
         this.jComboBox.removeAllItems();
-        if (this.jComboBox.getItemCount() <= this.control.jk.size()) {
+        
             for (int i = 0; i < this.control.jk.size(); i++) {
                 this.jComboBox.addItem(this.control.jk.get(i).getNama());
             }
-        }
+        
     }//GEN-LAST:event_jComboBoxMouseClicked
 
     private void jComboBox12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox12MouseClicked
@@ -3941,7 +3969,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jComboBox9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox9MouseClicked
         this.jComboBox9.removeAllItems();
-        if (this.jComboBox9.getItemCount() <= this.control.jk.size()) {
+        if (this.jComboBox9.getItemCount() <= this.control.pegawe.size()) {
             for (int i = 0; i < this.control.pegawe.size(); i++) {
                 this.jComboBox9.addItem(this.control.pegawe.get(i).getID());
             }
@@ -3963,7 +3991,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox14MouseClicked
 
     private void jComboBox15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox15MouseClicked
-        int j = this.jComboBox14.getSelectedIndex();
+        int j = this.jComboBox15.getSelectedIndex();
         labelNamaTambah.setText(this.control.pesewa.get(j).getNama());
         this.jComboBox15.removeAllItems();
         if (this.jComboBox15.getItemCount() <= this.control.jk.size()) {
@@ -3976,8 +4004,8 @@ public class GUI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         int j = this.jComboBox14.getSelectedIndex();
         int i = this.jComboBox15.getSelectedIndex();
-        int k= this.comptambah.getSelectedIndex();
-        this.control.insertRental(this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(),this.control.pegawe.get(k));
+        int k = this.comptambah.getSelectedIndex();
+        this.control.insertRental(this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(), this.control.pegawe.get(k));
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void comptambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comptambahMouseClicked
@@ -3990,7 +4018,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_comptambahMouseClicked
 
     private void buttonEditJAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditJAddActionPerformed
-        this.control.editJenisKendaraan(this.control.kendaraan.get(this.jComboBox1.getSelectedIndex()).getId(),this.namajenisedit.getText(),Integer.parseInt(this.kapasitasedit.getText()), Integer.parseInt(this.hargasewaedit.getText()));
+        this.control.editJenisKendaraan(this.control.kendaraan.get(this.jComboBox1.getSelectedIndex()).getId(), this.namajenisedit.getText(), Integer.parseInt(this.kapasitasedit.getText()), Integer.parseInt(this.hargasewaedit.getText()));
     }//GEN-LAST:event_buttonEditJAddActionPerformed
 
     private void namajeniseditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namajeniseditActionPerformed
@@ -3998,11 +4026,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_namajeniseditActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-     int j = this.jComboBox16.getSelectedIndex();
+        int j = this.jComboBox16.getSelectedIndex();
         int i = this.jComboBox17.getSelectedIndex();
-        int k= this.comptambah1.getSelectedIndex();
-        int l=this.jComboBox18.getSelectedIndex();
-        this.control.editRental(this.control.rental.get(l).getId(),this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(),this.control.pegawe.get(k));
+        int k = this.comptambah1.getSelectedIndex();
+        int l = this.jComboBox18.getSelectedIndex();
+        this.control.editRental(this.control.rental.get(l).getId(), this.control.pesewa.get(j), this.control.kendaraan.get(j), jTextField21.getText(), this.control.pegawe.get(k));
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jComboBox16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox16MouseClicked
@@ -4058,7 +4086,7 @@ public class GUI extends javax.swing.JFrame {
         hapusjenis.setText(this.control.rental.get(j).getJenisKendaraan());
         hapustanggal.setText(this.control.rental.get(j).getTanggal());
         this.control.deletepeminjaman(j);
-        
+
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -4067,7 +4095,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void comboBoxIDKendaraanPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboBoxIDKendaraanPengembalianMouseClicked
         this.comboBoxIDKendaraanPengembalian.removeAllItems();
-        if (this.comboBoxIDKendaraanPengembalian.getItemCount() <= this.control.jk.size()) {
+        if (this.comboBoxIDKendaraanPengembalian.getItemCount() <= this.control.rental.size()) {
             for (int i = 0; i < this.control.rental.size(); i++) {
                 this.comboBoxIDKendaraanPengembalian.addItem(this.control.rental.get(i).getId());
             }
@@ -4075,9 +4103,38 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxIDKendaraanPengembalianMouseClicked
 
     private void buttonAddPengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddPengembalianActionPerformed
-       int i=this.comboBoxIDKendaraanPengembalian.getSelectedIndex();
-       this.control.insertpengembalian(this.control.rental.get(i).getId(), textFieldTglKembaliPengembalian.getText());
+        int i = this.comboBoxIDKendaraanPengembalian.getSelectedIndex();
+        this.control.insertpengembalian(this.control.rental.get(i).getId(), textFieldTglKembaliPengembalian.getText());
     }//GEN-LAST:event_buttonAddPengembalianActionPerformed
+
+    private void jComboBox11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox11MouseClicked
+        this.jComboBox11.removeAllItems();
+        if (this.jComboBox11.getItemCount() <= this.control.pesewa.size()) {
+            for (int i = 0; i < this.control.pesewa.size(); i++) {
+                this.jComboBox11.addItem(this.control.pesewa.get(i).getNoKTP());
+            }
+        }
+    }//GEN-LAST:event_jComboBox11MouseClicked
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        int i = this.jComboBox11.getSelectedIndex();
+        this.labelnamaPenyewa.setText(this.control.pesewa.get(i).getNama());
+        this.labelalamatpenyewa.setText(this.control.pesewa.get(i).getAlamat());
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void buttonHapusPenyewaHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPenyewaHapusActionPerformed
+        int i = this.jComboBox11.getSelectedIndex();
+        this.control.deletepesewa(i, this.control.pesewa.get(i).getNoKTP());
+    }//GEN-LAST:event_buttonHapusPenyewaHapusActionPerformed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        this.jComboBox1.removeAllItems();
+        if (this.jComboBox1.getItemCount() <= this.control.jk.size()) {
+            for (int i = 0; i < this.control.jk.size(); i++) {
+                this.jComboBox1.addItem(this.control.jk.get(i).getNama());
+            }
+        }
+    }//GEN-LAST:event_jComboBox1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -4199,6 +4256,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -4305,8 +4363,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
@@ -4346,6 +4402,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel labelHapusKendaraanJenis;
     private javax.swing.JLabel labelHapusKendaraanNomorPolisi;
     private javax.swing.JLabel labelNamaTambah;
+    private javax.swing.JLabel labelalamatpenyewa;
+    private javax.swing.JLabel labelnamaPenyewa;
     private javax.swing.ButtonGroup managerRadioButtonGroup;
     private javax.swing.JTextField namajenisedit;
     private javax.swing.JPanel panelEditJKendaraan;
